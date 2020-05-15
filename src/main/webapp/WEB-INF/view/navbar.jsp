@@ -4,16 +4,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Rent-A-Rig</title>
-<link href="<c:url value="/resources/css/navbar.css" />" rel="stylesheet">
 </head>
 <body>
-
 	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="logo-container">
 			<img class="nav-logo img-fluid" alt="rent-a-rig_logo"
-				src="resources/nav-logo.png">
+				src='<c:url value="/resources/images/nav-logo.png"/>'>
 		</div>
-		<a class="navbar-brand" href="index.html">Rent-A-Rig</a>
+		<a class="navbar-brand" href="home">Rent-A-Rig</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbars" aria-controls="#navbars" aria-expanded="false"
 			aria-label="Toggle navigation">
