@@ -8,7 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import cova.rar.dao.ProductDao;
 import cova.rar.dao.UserDao;
+import cova.rar.service.ProductService;
 import cova.rar.service.UserService;
 
 @Configuration
@@ -40,7 +42,15 @@ public class BeanConfig {
 		return new JdbcTemplate(dataSource);
 	}
 	
+	@Bean
+	public ProductService productService() {
+		return new ProductService();
+	}
 	
+	@Bean
+	public ProductDao productDao() {
+		return new ProductDao();
+	}
 	
 
 }
