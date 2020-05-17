@@ -1,6 +1,6 @@
-# Rent-A-Rig_Spring-MVC #
+# Rent-A-Rig_Spring-MVC
 
-*************NOTES***********
+# --------------NOTES---------------
 Start COMPLETELY OVER. Basic HTML until functionality is there.
  - get products to list correctly with filter
  - get account info to show
