@@ -1,13 +1,23 @@
 package cova.rar.entities;
 
-public class User {
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+public class User {
+	@NotNull
 	private String username;
+	@NotNull
 	private String password;
+	
 	private String firstname;
+	
 	private String lastname;
+	
 	private String email;
+	
 	private String address;
+	
 	private int phone;
 
 	public String getUsername() {
