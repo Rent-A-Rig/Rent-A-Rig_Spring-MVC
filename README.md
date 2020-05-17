@@ -1,4 +1,4 @@
-# Rent-A-Rig_Spring-MVC
+# Rent-A-Rig_Spring-MVC #
 
 *************NOTES***********
 Start COMPLETELY OVER. Basic HTML until functionality is there.
