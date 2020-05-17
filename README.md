@@ -1,4 +1,5 @@
-"# Rent-A-Rig_Spring-MVC" 
+# Rent-A-Rig_Spring-MVC
+
 *************NOTES***********
 Start COMPLETELY OVER. Basic HTML until functionality is there.
  - get products to list correctly with filter
@@ -16,3 +17,7 @@ Write test cases
 adding navbar and footer
  - <jsp:include page="navbar.jsp"></jsp:include>
  - <jsp:include page="footer.jsp"></jsp:include>
+
+including static resources (like css/js)
+ - use link like to resource like this <link href='<spring:url value="/resources/css/mainStyles.css"/>' rel="stylesheet">
+ - any urls/links in the css will be relative to the views folder (ex./ ../images/image.jpg)
