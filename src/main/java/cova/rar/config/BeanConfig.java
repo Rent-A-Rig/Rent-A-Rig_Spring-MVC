@@ -32,6 +32,10 @@ public class BeanConfig {
 		DriverManagerDataSource dmds = 
 				new DriverManagerDataSource("jdbc:mysql://localhost:3306/RentARig", "root", "root");
 		dmds.setDriverClassName("com.mysql.jdbc.Driver");
+		dmds.setUrl("jdbc:mysql://localhost/rentarig?useSSL=false");
+		dmds.setUsername("root");
+		dmds.setPassword("root");
+		dmds.setSchema("rentarig");
 		return dmds;
 	}
 	

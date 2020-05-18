@@ -69,9 +69,10 @@ public class RegistrationController {
 	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
 		if (bindingResult.hasErrors()) {
+			System.out.println("has error!");
 			return "register";
 		}
 
-		return "redirect:/welcome";
+		return "welcome";
 	}
 }
