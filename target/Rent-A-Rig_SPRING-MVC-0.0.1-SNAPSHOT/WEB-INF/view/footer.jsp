@@ -34,13 +34,13 @@
 				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
 					<h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
 					<p>
-						<a href="Gaming-Rig.html">Gaming Rigs</a>
+						<a href="products?filter=gamingRig">Gaming Rigs</a>
 					</p>
 					<p>
-						<a href="portable.html">Portables</a>
+						<a href="products?filter=portable">Portables</a>
 					</p>
 					<p>
-						<a href="portable.html">Accessories</a>
+						<a href="products?filter=accessories">Accessories</a>
 					</p>
 				</div>
 				<!-- Grid column -->
@@ -49,22 +49,22 @@
 				<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
 					<h6 class="text-uppercase mb-4 font-weight-bold">Useful links</h6>
 					<p>
-						<a href="MyAccount.html">Your Account</a>
+						<a href="myAccount">Your Account</a>
 					</p>
 					<p>
-						<a href="cart.jsp">Shopping Cart</a>
+						<a href="cart">Shopping Cart</a>
 					</p>
 					<p>
-						<a href="registration.html">Register / Log-in</a>
+						<a href="register">Register / Log-in</a>
 					</p>
 					<p>
-						<a href="contactUs.html">Contact Us</a>
+						<a href="contactus">Contact Us</a>
 					</p>
 					<p>
-						<a href="FAQ.html">FAQ</a>
+						<a href="faq">FAQ</a>
 					</p>
 					<p>
-						<a href="Feedback.html">Feedback</a>
+						<a href="feedback">Feedback</a>
 					</p>
 				</div>
 				<!-- Grid column -->
@@ -92,7 +92,7 @@
 				<div class="col-md-7 col-lg-8">
 					<!--Copyright-->
 					<p class="text-center text-md-left">
-						© 2020 Copyright: <a href="index.html"> <strong>RentARig</strong>
+						© 2020 Copyright: <a href="home"> <strong>RentARig</strong>
 						</a>
 					</p>
 				</div>

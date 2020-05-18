@@ -14,10 +14,18 @@ import org.springframework.web.servlet.ModelAndView;
 public class StaticPageController {
 	
 	// map requestmappings to static pages
-	@RequestMapping(value= {"", "/", "/home"})
+	@RequestMapping(value= {"/home"})
 	public ModelAndView home() {
 		return new ModelAndView("home");
 	}
+	
+	@RequestMapping(value= {"/", ""})
+	public ModelAndView firstVisit() {
+		// check user cookie. If there is no user cookie then make new one with empty string
+		// usercookie = ""
+		return new ModelAndView("home");
+	}
+
 
 
 }
