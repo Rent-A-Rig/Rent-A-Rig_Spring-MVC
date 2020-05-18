@@ -24,7 +24,7 @@
 					href="home">Home <span class="sr-only">(current)</span></a></li>
 
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="" id="dropdown02"
+					class="nav-link dropdown-toggle" href="products?filter=all" id="dropdown02"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown02">
 						<a class="dropdown-item" href="products?filter=gamingRig">Gaming Rigs</a> <a

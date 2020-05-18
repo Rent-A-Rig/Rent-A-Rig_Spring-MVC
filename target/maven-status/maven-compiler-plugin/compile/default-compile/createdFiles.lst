@@ -1,12 +1,15 @@
 cova\rar\controller\LoginController.class
+cova\rar\dao\ProductDao$ProductMapper.class
 cova\rar\controller\RegistrationController.class
 cova\rar\config\WebInitializer.class
 cova\rar\entities\User.class
+cova\rar\dao\ProductDao.class
 cova\rar\controller\ProductController.class
 cova\rar\config\BeanConfig.class
 cova\rar\dao\UserDao$UserMapper.class
+cova\rar\entities\Product.class
+cova\rar\service\ProductService.class
 cova\rar\config\ServletConfig.class
-cova\rar\controller\SearchController.class
 cova\rar\entities\Login.class
 cova\rar\service\UserService.class
 cova\rar\dao\UserDao.class
