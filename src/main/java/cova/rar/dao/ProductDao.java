@@ -44,11 +44,11 @@ public class ProductDao {
 			
 			Product product = new Product();
 			
-			product.setId(rs.getInt("id"));
-			product.setName(rs.getString("prodName"));
-			product.setShortDesc(rs.getString("shortDesc"));
-			product.setLongDesc(rs.getString("longDesc"));
-			product.setInventory(rs.getInt("inventory"));
+			product.setId(rs.getInt("PRODUCT_ID"));
+			product.setName(rs.getString("PRODUCT_NAME"));
+			product.setShortDesc(rs.getString("SHORT_DESC"));
+			product.setLongDesc(rs.getString("LONG_DESC"));
+			product.setInventory(rs.getInt("STOCK"));
 			
 			return product;
 		}
