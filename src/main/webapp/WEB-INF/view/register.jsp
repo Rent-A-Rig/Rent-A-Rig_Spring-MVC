@@ -67,7 +67,7 @@
                     <tr>
                         <td></td>
                         <td>
-                            <form:button id="register" name="register">Register</form:button>
+                            <form:input type="submit" id="register" name="register" >Register</form:input>
                         </td>
                     </tr>
                     <tr></tr>

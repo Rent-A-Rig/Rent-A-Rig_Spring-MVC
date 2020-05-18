@@ -41,7 +41,7 @@
 			<div class="collapse navbar-collapse" id="#navbars">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link">Hello, Welcome
-							${cookie.firstNameCookie.value}!</a></li>
+							<%=request.getParameter("firstname")%>!</a></li>
 				</ul>
 			</div>
 			
