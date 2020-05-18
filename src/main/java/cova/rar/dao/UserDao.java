@@ -26,7 +26,8 @@ public class UserDao {
 	public int register(User user) {
 		// TODO check if user already exists
 		
-		String sql = "insert into users values(?,?,?,?,?,?,?)";
+		//username, first name, last name, shipping, billing, email, phone 
+		String sql = "insert into user values(?,?,?,?,?,?,?)";
 		
 		System.out.println(user);
 		return jdbcTemplate.update(sql, 

@@ -9,9 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.ui.Model;
-import org.springframework.web.servlet.ModelAndView;
+import javax.servlet.http.HttpSession;
 
 import cova.rar.entities.User;
 
@@ -27,9 +25,8 @@ public class UserCookies extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		ModelAndView database = new ModelAndView();
-		User user = database
-
+		User user = new User();
+		HttpSession session = request.getSession();
 		
 		if (user.getFirstname().equals("")) {
 			request.getRequestDispatcher("views/register.jsp").forward(request, response);

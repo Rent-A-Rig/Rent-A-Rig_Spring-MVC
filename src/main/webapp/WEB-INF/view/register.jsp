@@ -67,7 +67,7 @@
                     <tr>
                         <td></td>
                         <td>
-                            <form:input type="submit" id="register" name="register" >Register</form:input>
+                            <form:button id="register" name="register" href="/myAccount">Register</form:button>
                         </td>
                     </tr>
                     <tr></tr>
