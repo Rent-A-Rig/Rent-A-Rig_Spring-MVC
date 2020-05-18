@@ -1,14 +1,14 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="js/Rent-A-Rig.js"></script>
 <meta charset="ISO-8859-1">
 
-<link rel="stylesheet" type="text/css" href="css/mainStyles.css">
-<link rel="stylesheet" type="text/css" href="css/homePage.css">
+<link href='<spring:url value="/resources/css/mainStyles.css"/>' rel="stylesheet">
+<link href='<spring:url value="/resources/css/homePage.css" />' rel="stylesheet">
 
 <title>Rent-A-Rig</title>
 </head>

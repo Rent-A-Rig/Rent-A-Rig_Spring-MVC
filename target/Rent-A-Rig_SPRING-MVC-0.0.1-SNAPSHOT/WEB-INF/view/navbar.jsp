@@ -1,9 +1,9 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Rent-A-Rig</title>
-<link rel="stylesheet" type="text/css" href="css/mainStyles.css">
 </head>
 <body>
 
@@ -22,19 +22,19 @@
 		<div class="collapse navbar-collapse" id="#navbars">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+					href="home">Home <span class="sr-only">(current)</span></a></li>
 
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="" id="dropdown02"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown02">
-						<a class="dropdown-item" href="Gaming-Rig.html">Gaming Rigs</a> <a
-							class="dropdown-item" href="portable.html">Portables</a> <a
-							class="dropdown-item" href="Gaming-Rig.html">Accessories</a>
+						<a class="dropdown-item" href="products?filter=gamingRig">Gaming Rigs</a> <a
+							class="dropdown-item" href="products?filter=portables">Portables</a> <a
+							class="dropdown-item" href="products?filter=accessories">Accessories</a>
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
-					href="registration.jsp">Log-in/Register</a></li>
-				<li class="nav-item"><a class="nav-link" href="MyAccount.jsp">Account</a>
+					href="register">Log-in/Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="myAccount">Account</a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="cart?action=viewCart">Cart</a></li>
