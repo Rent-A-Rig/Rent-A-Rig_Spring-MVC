@@ -46,6 +46,7 @@ public class ProductDao {
 			
 			product.setId(rs.getInt("PRODUCT_ID"));
 			product.setName(rs.getString("PRODUCT_NAME"));
+			product.setCategory(rs.getString("CATEGORY"));
 			product.setShortDesc(rs.getString("SHORT_DESC"));
 			product.setLongDesc(rs.getString("LONG_DESC"));
 			product.setInventory(rs.getInt("STOCK"));
