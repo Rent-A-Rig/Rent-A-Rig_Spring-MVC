@@ -65,14 +65,14 @@ public class RegistrationController {
 		return "register";
 	}
 
-	@PostMapping("/registerProcess")
-	public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+	
+	// click on register button
+	@PostMapping(value = "/registerProcess")
+	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
+			  @ModelAttribute("user") User user) {
+		
+		userService.register(user);
+		return new ModelAndView("welcome", "firstname", user.getFirstname());
 
-		if (bindingResult.hasErrors()) {
-			System.out.println("has error!");
-			return "register";
-		}
-
-		return "welcome";
 	}
 }

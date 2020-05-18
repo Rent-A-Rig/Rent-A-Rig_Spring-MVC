@@ -11,7 +11,7 @@ body{
 
 .image1{
 
-	background-image: url("../resources/esports-computer.jpg");
+	background-image: url("../images/esports-computer.jpg");
 	background-size: cover;
 	height:350px;
 	weight:900px;
@@ -26,7 +26,7 @@ body{
 }
 
 .image2{
-	background-image: url("../resources/lenovo-folding-notebook.jpg");
+	background-image: url("../images/lenovo-folding-notebook.jpg");
 	background-size: cover;
 	background-position: center;
 	height:300px;
@@ -35,7 +35,7 @@ body{
 }
 
 .image3{
-	background-image: url("../resources/2020-hero-mobile-9.jpg");
+	background-image: url("../images/2020-hero-mobile-9.jpg");
 	background-size: cover;
 	background-position: center;
 	height:300px;
@@ -45,7 +45,7 @@ body{
 	font-size:28px;
 }
 .image4{
-	background-image: url("../resources/images (1).jfif");
+	background-image: url("../images/images (1).jfif");
 	background-size: cover;
 	height:300px;
 	weight:300px;

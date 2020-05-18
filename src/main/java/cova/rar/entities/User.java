@@ -28,6 +28,12 @@ public class User {
 		this.username = username;
 	}
 
+	@Override
+	public String toString() {
+		return "User [username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname="
+				+ lastname + ", email=" + email + ", address=" + address + ", phone=" + phone + "]";
+	}
+
 	public String getPassword() {
 		return password;
 	}

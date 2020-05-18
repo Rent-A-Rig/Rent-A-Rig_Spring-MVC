@@ -1,3 +1,4 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,8 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <meta charset="ISO-8859-1">
 
-<link href="<c:url value="/resources/css/mainStyles.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/homePage.css" />" rel="stylesheet">
+<link href='<spring:url value="/resources/css/mainStyles.css"/>' rel="stylesheet">
+<link href='<spring:url value="/resources/css/homePage.css" />' rel="stylesheet">
 
 <title>Rent-A-Rig</title>
 </head>
