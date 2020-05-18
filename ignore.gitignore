@@ -1,2 +1,6 @@
 #maven target folder
 */target/*
+*/target/**
+target/**
+pom.properties
+MANAFEST.MF
