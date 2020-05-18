@@ -1,5 +1,6 @@
 package cova.rar.config;
 
+
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -18,8 +19,10 @@ public class ServletConfig implements WebMvcConfigurer {
 		registry.jsp("WEB-INF/view/", ".jsp");
 	}
 	
-	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("WEB-INF/resources/**").addResourceLocations("/resources/");
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/resources/**")
+		  .addResourceLocations("/WEB-INF/resources/");
+
     }
 	
 	
