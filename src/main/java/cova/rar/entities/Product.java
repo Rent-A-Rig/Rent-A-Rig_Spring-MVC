@@ -7,6 +7,7 @@ public class Product {
 	private String shortDesc;
 	private String longDesc;
 	private int inventory;
+	private String category;
 	
 	public int getId() {
 		return id;
@@ -40,10 +41,14 @@ public class Product {
 		this.inventory = inventory;
 	}
 	
+	public void setCategory(String category) {
+		this.category = category;
+		
+	}
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", shortDesc=" + shortDesc + ", longDesc=" + longDesc
-				+ ", inventory=" + inventory + "]";
+				+ ", inventory=" + inventory + ", category=" + category + "]";
 	}
 
 }
