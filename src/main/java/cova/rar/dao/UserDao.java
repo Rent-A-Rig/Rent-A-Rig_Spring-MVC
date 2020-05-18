@@ -27,6 +27,8 @@ public class UserDao {
 		// TODO check if user already exists
 		
 		String sql = "insert into users values(?,?,?,?,?,?,?)";
+		
+		System.out.println(user);
 		return jdbcTemplate.update(sql, 
 				new Object[] {user.getUsername(), user.getPassword(), user.getFirstname(),
 						user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone()});
@@ -50,6 +52,7 @@ public class UserDao {
 
 		@Override
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+
 			User user = new User();
 			
 			user.setUsername(rs.getString("username"));

@@ -13,15 +13,13 @@ public class ProductService {
 	ProductDao productDao;
 	
 	public List<Product> getProducts(String filter) {
-		
 		List<Product> products = null;
 		
 		switch(filter) {
-			case "all": products = productDao.getAll();
-			default: products = productDao.getSearch(filter);
+			case "all": return productDao.getAll();
+			default: return productDao.getSearch(filter);
 		}
-		
-		return products;
+
 	}
 
 }

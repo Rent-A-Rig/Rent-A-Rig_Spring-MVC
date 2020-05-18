@@ -23,6 +23,7 @@ public class Product {
 	public String getShortDesc() {
 		return shortDesc;
 	}
+	
 	public void setShortDesc(String shortDesc) {
 		this.shortDesc = shortDesc;
 	}
@@ -37,6 +38,12 @@ public class Product {
 	}
 	public void setInventory(int inventory) {
 		this.inventory = inventory;
+	}
+	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", shortDesc=" + shortDesc + ", longDesc=" + longDesc
+				+ ", inventory=" + inventory + "]";
 	}
 
 }

@@ -22,10 +22,14 @@ public class ProductDao {
 
 	public List<Product> getAll() {
 		String sql = "select * from products";
-		
+
 		List<Product> products = jdbcTemplate.query(sql, new ProductMapper());
-		
-		return products;
+		if (products.size() > 0) {
+			return products;
+		}
+		else {
+			return null;
+		}
 	}
 
 	public List<Product> getSearch(String filter) {
@@ -34,13 +38,13 @@ public class ProductDao {
 	}
 	
 	class ProductMapper implements RowMapper<Product> {
-
+		
 		@Override
 		public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
 			
 			Product product = new Product();
 			
-			product.setId(rs.getInt("prodID"));
+			product.setId(rs.getInt("id"));
 			product.setName(rs.getString("prodName"));
 			product.setShortDesc(rs.getString("shortDesc"));
 			product.setLongDesc(rs.getString("longDesc"));

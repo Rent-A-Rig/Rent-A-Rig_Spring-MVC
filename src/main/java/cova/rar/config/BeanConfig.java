@@ -14,41 +14,44 @@ import cova.rar.service.ProductService;
 import cova.rar.service.UserService;
 
 @Configuration
-@ComponentScan(basePackages = {"cova.rar",
+@ComponentScan(basePackages = {"cova.rar.service", "cova.rar.dao",
 		"org.springframework.jdbc.datasource.DriverManagerDataSource",
 		"org.springframework.jdbc.core.JdbcTemplate"})
 public class BeanConfig {
 	
 	@Bean
-	public UserService userService() {
+	public UserService getUserService() {
 		return new UserService();
 	}
 	
 	@Bean 
-	public UserDao userDao() {
+	public UserDao getUserDao() {
 		return new UserDao();
 	}
 	
 	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dmds = 
-				new DriverManagerDataSource("jdbc:mysql://localhost:3306/RentARig", "root", "root");
-		dmds.setDriverClassName("com.mysql.jdbc.Driver");
+	public DataSource getDataSource() {
+		DriverManagerDataSource dmds = new DriverManagerDataSource();
+		dmds.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dmds.setUrl("jdbc:mysql://localhost/rentarig?useSSL=false");
+		dmds.setUsername("root");
+		dmds.setPassword("root");
+		dmds.setSchema("rentarig");
 		return dmds;
 	}
 	
 	@Bean 
-	public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-		return new JdbcTemplate(dataSource);
+	public JdbcTemplate getJdbcTemplate() {
+		return new JdbcTemplate(getDataSource());
 	}
 	
 	@Bean
-	public ProductService productService() {
+	public ProductService getProductService() {
 		return new ProductService();
 	}
 	
 	@Bean
-	public ProductDao productDao() {
+	public ProductDao getProductDao() {
 		return new ProductDao();
 	}
 	
