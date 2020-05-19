@@ -50,14 +50,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <form:label path="address">Address</form:label>
-                        </td>
-                        <td>
-                            <form:input path="address" name="address" id="address" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <form:label path="phone">Phone</form:label>
                         </td>
                         <td>

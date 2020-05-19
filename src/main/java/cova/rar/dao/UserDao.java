@@ -29,10 +29,9 @@ public class UserDao {
 		//username, first name, last name, shipping, billing, email, phone 
 		String sql = "insert into user values(?,?,?,?,?,?,?)";
 		
-		System.out.println(user);
 		return jdbcTemplate.update(sql, 
 				new Object[] {user.getUsername(), user.getPassword(), user.getFirstname(),
-						user.getLastname(), user.getEmail(), user.getAddress(), user.getPhone()});
+						user.getLastname(), user.getEmail(), user.getAddress().toString(), user.getPhone()});
 	}
 	
 	public User validateUser(Login login) {
@@ -56,14 +55,15 @@ public class UserDao {
 
 			User user = new User();
 			
+			// no address atm
 			user.setUsername(rs.getString("username"));
 		    user.setPassword(rs.getString("password"));
 		    user.setFirstname(rs.getString("firstname"));
 		    user.setLastname(rs.getString("lastname"));
-		    user.setEmail(rs.getString("email"));
 		    user.setAddress(rs.getString("address"));
+		    user.setEmail(rs.getString("email"));
 		    user.setPhone(rs.getString("phone"));
-			
+		    
 			return user;
 		}
 		

@@ -1,17 +1,21 @@
 package cova.rar.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import cova.rar.service.CookieMonster;
 
 @Controller
 
 public class StaticPageController {
+	
+	@Autowired
+	CookieMonster cookieMonster;
 	
 	// map requestmappings to static pages
 	@RequestMapping(value= {"/home"})
@@ -20,9 +24,11 @@ public class StaticPageController {
 	}
 	
 	@RequestMapping(value= {"/", ""})
-	public ModelAndView firstVisit() {
+	public ModelAndView firstVisit(HttpServletRequest request, HttpServletResponse response) {
 		// check user cookie. If there is no user cookie then make new one with empty string
-		// usercookie = ""
+		if (!cookieMonster.isLoggedIn(request)) {
+			cookieMonster.initLogin(request, response);
+		}
 		return new ModelAndView("home");
 	}
 

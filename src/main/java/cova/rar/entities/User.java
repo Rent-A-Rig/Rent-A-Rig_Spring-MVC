@@ -7,8 +7,13 @@ public class User {
 	private String firstname;
 	private String lastname;
 	private String email;
-	private String address;
+	private Address address;
 	private String phone;
+	
+	public User() {
+		this.address = new Address();
+		address.setLine1("");
+	}
 
 	public String getUsername() {
 		return username;
@@ -21,7 +26,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname="
-				+ lastname + ", email=" + email + ", address=" + address + ", phone=" + phone + "]";
+				+ lastname + ", email=" + email + ", address=" + address.toString() + ", phone=" + phone + "]";
 	}
 
 	public String getPassword() {
@@ -56,12 +61,17 @@ public class User {
 		this.email = email;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setAddress(String string) {
+		Address newadd = new Address();
+		newadd.setLine1(string);
+		newadd.setLine2("");
+		newadd.setState("");
+		newadd.setZip("");
+		this.address = newadd;
 	}
 
 	public String getPhone() {
