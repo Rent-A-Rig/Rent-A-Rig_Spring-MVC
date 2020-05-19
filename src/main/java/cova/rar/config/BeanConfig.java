@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import cova.rar.dao.ProductDao;
 import cova.rar.dao.UserDao;
+import cova.rar.service.CookieMonster;
 import cova.rar.service.ProductService;
 import cova.rar.service.UserService;
 
@@ -53,6 +54,11 @@ public class BeanConfig {
 	@Bean
 	public ProductDao getProductDao() {
 		return new ProductDao();
+	}
+	
+	@Bean
+	public CookieMonster getCookieMonster() {
+		return new CookieMonster();
 	}
 	
 
