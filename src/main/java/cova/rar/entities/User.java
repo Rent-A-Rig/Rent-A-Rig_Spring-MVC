@@ -1,23 +1,32 @@
 package cova.rar.entities;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 	@NotNull
 	private String username;
-	@NotNull
+	
+	
 	private String password;
 	
+	
+	/* @Size(min=2, max=30) */
 	private String firstname;
 	
+	/* @Size(min=2, max=30) */
 	private String lastname;
-	
+
 	private String email;
 	
 	private String address;
-	
+
 	private int phone;
 
 	public String getUsername() {

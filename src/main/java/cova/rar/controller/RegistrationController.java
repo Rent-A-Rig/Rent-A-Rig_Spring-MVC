@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -67,12 +69,28 @@ public class RegistrationController {
 
 	
 	// click on register button
-	@PostMapping(value = "/registerProcess")
-	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
-			  @ModelAttribute("user") User user) {
-		
-		userService.register(user);
-		return new ModelAndView("welcome", "firstname", user.getFirstname());
+	@PostMapping("/registerProcess")
+	public String registerProcess(@ModelAttribute("user") @Validated User user, 
+		      BindingResult bindingResult, Model model) {
+	      if (bindingResult.hasErrors()) {
+	    	 System.out.println("Validation has error!");
+	         return "register";
+	      }
+/*	      model.addAttribute("name", student.getName());
+	      model.addAttribute("age", student.getAge());
+	      model.addAttribute("id", student.getId());*/
 
+	      return "welcome";
 	}
 }
+	
+/*	(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
+
+		if (bindingResult.hasErrors()) {
+			System.out.println("has error!");
+			return "register";
+		}
+
+		return "welcome";
+	}*/
+
