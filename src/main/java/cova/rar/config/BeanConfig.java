@@ -16,7 +16,7 @@ import cova.rar.service.UserService;
 import cova.rar.validator.UserValidator;
 
 @Configuration
-@ComponentScan(basePackages = {"cova.rar.service", "cova.rar.dao",
+@ComponentScan(basePackages = {"cova.rar.service", "cova.rar.dao", "cova.rar.controller",
 		"org.springframework.jdbc.datasource.DriverManagerDataSource",
 		"org.springframework.jdbc.core.JdbcTemplate"})
 public class BeanConfig {
