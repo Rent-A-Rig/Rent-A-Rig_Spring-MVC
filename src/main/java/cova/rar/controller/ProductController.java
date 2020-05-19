@@ -29,11 +29,9 @@ public class ProductController {
 		if (null != request.getAttribute("filter")) {
 			filter = (String) request.getAttribute("filter");
 		}
-		
-		if (filter.equals("all")) {
-			products = productService.getProducts("all");
-		}
-		
+
+		products = productService.getProducts(filter);
+
 		return new ModelAndView("products", "products", products);
 		
 	}
