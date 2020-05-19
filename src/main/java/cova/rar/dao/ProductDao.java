@@ -29,6 +29,7 @@ public class ProductDao {
 		} else {
 			return null;
 		}
+		
 	}
 
 	public List<Product> getCategory(String category) {

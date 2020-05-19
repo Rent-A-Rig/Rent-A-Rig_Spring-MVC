@@ -22,7 +22,7 @@ public class ProductController {
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView productPage(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		List<Product> products = null;
 		String filter = "all"; // default value for filter
 		
