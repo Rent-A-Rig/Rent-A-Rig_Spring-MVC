@@ -57,7 +57,7 @@
 			</div>
 			<img class="image2">
 			<div class="card-body">
-				<a href="portable.html" class="go-btn btn btn-info">See More</a>
+				<a href="products?filter=portable" class="go-btn btn btn-info">See More</a>
 			</div>
 		</div>
 		<div class="card m-0">
@@ -66,7 +66,7 @@
 			</div>
 			<img class="image3">
 			<div class="card-body">
-				<a href="Gaming-Rig.html" class="go-btn btn btn-info">See More</a>
+				<a href="products?filter=gamingrigs" class="go-btn btn btn-info">See More</a>
 			</div>
 		</div>
 		<div class="card m-0">
@@ -75,7 +75,7 @@
 			</div>
 			<img class="image4">
 			<div class="card-body">
-				<a href="Gaming-Rig.html" class="go-btn btn btn-info">See More</a>
+				<a href="products?filter=accessories" class="go-btn btn btn-info">See More</a>
 			</div>
 		</div>
 

@@ -13,10 +13,12 @@ public class ProductService {
 	ProductDao productDao;
 	
 	public List<Product> getProducts(String filter) {
-		List<Product> products = null;
 		
 		switch(filter) {
 			case "all": return productDao.getAll();
+			case "gamingrigs": return productDao.getCategory("gamingrigs");
+			case "portable": return productDao.getCategory("portable");
+			case "accessories": return productDao.getCategory("accessories");
 			default: return productDao.getSearch(filter);
 		}
 

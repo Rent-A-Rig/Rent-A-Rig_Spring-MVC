@@ -45,6 +45,11 @@ public class Product {
 		this.category = category;
 		
 	}
+	
+	public String getCategory() {
+		return category;	
+	}
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", shortDesc=" + shortDesc + ", longDesc=" + longDesc

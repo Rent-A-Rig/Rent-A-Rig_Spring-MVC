@@ -22,6 +22,9 @@
 			<td>Product ID:        ${product.id}</td>
 		</tr>
 		<tr>
+			<td>Product Inventory: ${product.category}</td>
+		</tr>
+		<tr>
 			<td>Product Inventory: ${product.inventory}</td>
 		</tr>
 		<tr>
