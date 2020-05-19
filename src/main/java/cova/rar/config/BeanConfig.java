@@ -12,6 +12,7 @@ import cova.rar.dao.ProductDao;
 import cova.rar.dao.UserDao;
 import cova.rar.service.ProductService;
 import cova.rar.service.UserService;
+import cova.rar.validator.UserValidator;
 
 @Configuration
 @ComponentScan(basePackages = {"cova.rar.service", "cova.rar.dao",
@@ -19,6 +20,10 @@ import cova.rar.service.UserService;
 		"org.springframework.jdbc.core.JdbcTemplate"})
 public class BeanConfig {
 	
+	@Bean
+	public UserValidator getUserValidator() {
+		return new UserValidator();
+	}
 	@Bean
 	public UserService getUserService() {
 		return new UserService();

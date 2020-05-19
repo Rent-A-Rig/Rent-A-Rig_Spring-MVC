@@ -12,29 +12,44 @@
 		<table align="center">
 			<tr>
 				<td><form:label path="username">Username</form:label></td>
-				<td><form:input path="username" name="username" id="username"/></td>
+				<td>
+					<form:input path="username" name="username" id="username"/>
+					<form:errors path="username"></form:errors>
+				</td>
 				
 				
 				
 			</tr>
 			<tr>
 				<td><form:label path="password">Password</form:label></td>
-				<td><form:password path="password" name="password"
-						id="password" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="firstname">FirstName</form:label></td>
-				<td><form:input path="firstname" name="firstname"
-						id="firstname" /></td>
-			</tr>
-			<tr>
-				<td><form:label path="lastname">LastName</form:label></td>
-				<td><form:input path="lastname" name="lastname" id="lastname" />
+				<td>
+					<form:password path="password" name="password" id="password" />
+					<form:errors path="password"></form:errors>
 				</td>
 			</tr>
+			
+			<tr>
+				<td><form:label path="firstname">FirstName</form:label></td>
+				<td>
+					<form:input path="firstname" name="firstname" id="firstname" />
+					<form:errors path="firstname"></form:errors>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><form:label path="lastname">LastName</form:label></td>
+				<td>
+					<form:input path="lastname" name="lastname" id="lastname" />
+					<form:errors path="lastname"></form:errors>
+				</td>
+			</tr>
+			
 			<tr>
 				<td><form:label path="email">Email</form:label></td>
-				<td><form:input path="email" name="email" id="email" /></td>
+				<td>
+					<form:input path="email" name="email" id="email" />
+					<form:errors path="email"></form:errors>
+				</td>
 			</tr>
 			<!--<tr>
 				<td><form:label path="address">Address</form:label></td>
@@ -43,7 +58,10 @@
 			</tr>-->
 			<tr>
 				<td><form:label path="phone">Phone</form:label></td>
-				<td><form:input path="phone" name="phone" id="phone" /></td>
+				<td>
+					<form:input path="phone" name="phone" id="phone" />
+					<form:errors path="phone"></form:errors>
+				</td>
 			</tr>
 			<tr>
 				<td></td>

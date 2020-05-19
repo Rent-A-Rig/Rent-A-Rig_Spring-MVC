@@ -10,24 +10,24 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-	@NotNull
+	
 	private String username;
 	
 	
 	private String password;
 	
 	
-	/* @Size(min=2, max=30) */
+	
 	private String firstname;
 	
-	/* @Size(min=2, max=30) */
+
 	private String lastname;
 
 	private String email;
 	
 	private String address;
 
-	private int phone;
+	private String phone;
 
 	public String getUsername() {
 		return username;
@@ -83,11 +83,11 @@ public class User {
 		this.address = address;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
