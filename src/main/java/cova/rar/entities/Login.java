@@ -1,7 +1,10 @@
 package cova.rar.entities;
 
-public class Login {
+import javax.validation.constraints.NotNull;
 
+public class Login {
+	
+	@NotNull
 	private String username;
 	private String password;
 
