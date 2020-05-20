@@ -24,9 +24,11 @@ public class CookieMonster {
 	public void setLoginCookie(HttpServletRequest request, HttpServletResponse response) {
 		Cookie[] cookies = request.getCookies();
 		Cookie loginCookie = null;
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("login")) {
-				loginCookie = cookie;
+		if (null != cookies) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("login")) {
+					loginCookie = cookie;
+				}
 			}
 		}
 		
@@ -49,9 +51,11 @@ public class CookieMonster {
 	public void setLogoutCookie(HttpServletRequest request, HttpServletResponse response) {
 		Cookie[] cookies = request.getCookies();
 		Cookie loginCookie = null;
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("login")) {
-				loginCookie = cookie;
+		if (null != cookies) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("login")) {
+					loginCookie = cookie;
+				}
 			}
 		}
 		
@@ -68,11 +72,14 @@ public class CookieMonster {
 		
 		Cookie[] cookies = request.getCookies();
 		Cookie loginCookie = null;
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("login")) {
-				loginCookie = cookie;
+		if (null != cookies) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("login")) {
+					loginCookie = cookie;
+				}
 			}
 		}
+		
 		
 		if (null == loginCookie || loginCookie.getValue().equals("false")) {
 			return false;
@@ -87,9 +94,11 @@ public class CookieMonster {
 		
 		Cookie[] cookies = request.getCookies();
 		Cookie loginCookie = null;
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("login")) {
-				loginCookie = cookie;
+		if (null != cookies) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("login")) {
+					loginCookie = cookie;
+				}
 			}
 		}
 		

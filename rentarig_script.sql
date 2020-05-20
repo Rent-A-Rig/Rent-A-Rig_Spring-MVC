@@ -38,7 +38,9 @@ CREATE TABLE USER(
     DROP TABLE IF EXISTS products;
 CREATE TABLE PRODUCTS(
 
-   PRODUCT_ID INT NOT NULL AUTO_INCREMENT,
+   PRODUCT_ID VARCHAR(30) NOT NULL,
+   
+   PRODUCT_PRICE DECIMAL(6,2) NOT NULL,
 
    PRODUCT_NAME VARCHAR(255) NOT NULL,
    
@@ -77,9 +79,10 @@ PRIMARY KEY(ITEM_ID)
 );
 
 
-INSERT INTO PRODUCTS (PRODUCT_ID, PRODUCT_NAME, CATEGORY, SHORT_DESC, LONG_DESC, STOCK)  
+INSERT INTO PRODUCTS (PRODUCT_ID, PRODUCT_PRICE, PRODUCT_NAME, CATEGORY, SHORT_DESC, LONG_DESC, STOCK)  
 VALUES (
-PRODUCT_ID, 
+'ROGSTRIXGL12', 
+ 60.00,
 'ROG Strix GL12 Gaming Desktop',
 'Gamingrigs,desktop',
 '9th Gen 8-core Intel Core i7-9700F, NVIDIA GeForce RTX 2060 6 GB, 16 GB DDR4 RAM, 1 TB PCIe SSD, Windows 10 Home, Iron Grey, GL12CX-NS763',
@@ -88,7 +91,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'ABSMAGEM',
+50.00,
 'ABS Mage M Gaming Desktop',
 'Gamingrigs,desktop',
 'Ryzen 5 3600 - Radeon RX 5700 XT - 16GB DDR4 3000MHz - 512GB SSD - Gaming Desktop PC',
@@ -97,7 +101,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'MSI_Trident_XPlus',
+90.00,
 'MSI Trident X Plus 9SD-461US Gaming Desktop',
 'Gamingrigs,desktop',
 'Intel Core i7-9700KF 3.60 GHz - 16 GB DDR4 1 TB SSD - NVIDIA GeForce RTX 2070 SUPER',
@@ -106,7 +111,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'ASUS_VG245H',
+10.00,
 'ASUS VG245H 24" Gaming Monitor',
 'Gamingrigs,monitors',
 '1ms (GTG) Widescreen 2x HDMI Asus Eye Care with Ultra Low-Blue Light and Flicker-Free Console Gaming Monitor AMD FreeSync Built-in Speakers VESA Mountable Height and Pivot Adjustment',
@@ -115,7 +121,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'ACER_Z1_Z321QU',
+20.00,
 'Acer Predator Z1 Z321QU bmiphzx 31.5',
 'Gamingrigs,monitors',
 'WQHD 2560 x 1440 2K Resolution 165Hz 4ms HDMI DisplayPort NVIDIA G-Sync Technology USB 3.0 Hub Built-in Speakers LED Backlit LCD Curved Gaming Monitor',
@@ -124,7 +131,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'ASUS_XG32VQ',
+20.00,
 'ASUS ROG Strix XG32VQ 32',
 'Gamingrigs,monitors',
 'WQHD 2560 x 1440 2K Adaptive/FreeSync 144Hz 4ms Curved Gaming Monitors with Aura RGB Lighting Asus Eye Care with Ultra Low-Blue Light and Flicker-Free',
@@ -133,7 +141,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Roswell_Fusion_C40',
+3.00,
 'Rosewill Fusion C40 Gaming Keyboard and Mouse Combo',
 'Gamingrigs,accessories',
 'Dedicated Multimedia Keys, Mem-chanical Keyboard with Brilliant RGB LED Backlight with Precise Gaming Mouse, On-the-fly DPI Setting',
@@ -142,7 +151,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'CM_Devastator_3',
+3.00,
 'Cooler Master Devastator 3 Gaming Combo',
 'Gamingrigs,accessories',
 'RGB Keyboard and Mouse Featuring Seven Different LED Color Options By Cooler Master',
@@ -151,7 +161,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'CM_Storm_Devastator',
+6.00,
 'CM Storm Devastator',
 'Gamingrigs,accessories',
 'LED Gaming Keyboard and Mouse Combo Bundle (Blue Edition)',
@@ -160,7 +171,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'MSI_9SF-240',
+50.00,
 'MSI GP Series GP65 Leopard 9SF-240 15.6',
 'portable,gaminglaptops',
 '144 Hz IPS Intel Core i7 9th Gen 9750H (2.60 GHz) NVIDIA GeForce RTX 2070 16 GB Memory 512 GB NVMe SSD Windows 10 Home 64-bit Gaming Laptop',
@@ -169,7 +181,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'ASUS_ROG_Zephyrus_S',
+40.00,
 'ASUS ROG Zephyrus S Ultra Slim Gaming PC Laptop, 15.6',
 'portable,gaminglaptops',
 '144 Hz IPS Type, Intel Core i7-8750H CPU, GeForce GTX 1070, 16 GB DDR4, 512 GB PCIe SSD, Military-Grade Metal Chassis, Windows 10 Home',
@@ -178,7 +191,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Acer_PH315',
+45.00,
 'Acer Predator Helios 300 PH315-52-71RT 15.6',
 'portable,gaminglaptops',
 '144 Hz IPS Intel Core i7 9th Gen 9750H (2.60 GHz) NVIDIA GeForce RTX 2060 16 GB Memory 512 GB SSD Windows 10 Pro 64-bit Gaming Laptop',
@@ -187,7 +201,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Microsoft_Surface_JKX-00001',
+60.00,
 'Microsoft Laptop Surface Laptop JKX-00001',
 'portable,thinandlight',
 'Intel Core i7 7th Gen 7660U (2.50 GHz) 16 GB Memory 1 TB SSD Intel Iris Plus Graphics 640 13.5" Touchscreen Windows 10 Pro 64-Bit',
@@ -196,7 +211,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'MacBook_Air',
+60.00,
 'Apple Laptop MacBook Air MJVE2LLA',
 'portable,thinandlight',
 'Intel Core i5 1.60 GHz 4 GB Memory 128 GB SSD Intel HD Graphics 5500 13.3" Mac OS X v10.10 Yosemite',
@@ -205,7 +221,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Lenovo_ThinkPad',
+50.00,
 'Lenovo Laptop ThinkPad T480s (20L7002HUS)',
 'portable,thinandlight',
 'Intel Core i5 8th Gen 8250U (1.60 GHz) 8 GB Memory 256 GB SSD Intel UHD Graphics 620 14.0" Windows 10 Pro 64-Bit',
@@ -214,7 +231,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Microsoft_Surface_Pro_4',
+20.00,
 'Microsoft Surface Pro 4',
 'portable,tablets',
 '12.3-Inch Touchscreen Tablet (4GB RAM, 128GB SSD, Intel Core i5)',
@@ -223,7 +241,8 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Apple_iPad_Air',
+15.00,
 'Apple iPad Air MD788LL/A',
 'portable,tablets',
 'Apple A7 1 GB Memory 9.7" 2048 x 1536 Tablet (WiFi Only) iOS 7 Silver',
@@ -232,11 +251,13 @@ PRODUCT_ID,
 ),
 
 (
-PRODUCT_ID,
+'Lenovo_yoga_tab_3',
+10.00,
 'Lenovo YOGA Tab 3 8 ZA090094US',
 'portable,tablets',
 'Qualcomm APQ8009 (1.30GHz) 2 GB Memory 16 GB eMMC 8.0" 1280 x 800 Tablet PC Android 5.1 (Lollipop) Black',
 'Get lost in your favorite movies with immersive Dolby atmos sound, play your favorite games on a crisp HD screen and snap selfies with built-in gesture controls. All on a device weighing just over 1 pound for ultimate portability',
 20
 );
+
     

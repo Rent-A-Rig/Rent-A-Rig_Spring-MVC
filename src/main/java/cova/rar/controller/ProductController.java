@@ -22,14 +22,15 @@ public class ProductController {
 	
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public ModelAndView productPage(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		List<Product> products = null;
 		String filter = "all"; // default value for filter
 		
-		if (null != request.getAttribute("filter")) {
-			filter = (String) request.getAttribute("filter");
+		if (null != request.getParameter("filter")) {
+			filter = (String) request.getParameter("filter");
 		}
-
+		
+		System.out.println(filter);
 		products = productService.getProducts(filter);
 
 		return new ModelAndView("products", "products", products);
