@@ -27,11 +27,12 @@ public class UserDao {
 		// TODO check if user already exists
 		
 		//username, first name, last name, shipping, billing, email, phone 
-		String sql = "insert into user values(?,?,?,?,?,?,?)";
+		String sql = "insert into user values(?,?,?,?,?,?,?,?)";
 		
+		System.out.println(sql);
 		return jdbcTemplate.update(sql, 
 				new Object[] {user.getUsername(), user.getPassword(), user.getFirstname(),
-						user.getLastname(), user.getEmail(), user.getAddress().toString(), user.getPhone()});
+						user.getLastname(), user.getAddress().toString(), user.getEmail(), user.getPhone()});
 	}
 	
 	public User validateUser(Login login) {
