@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import cova.rar.entities.Login;
 import cova.rar.entities.User;
 import cova.rar.service.UserService;
+import cova.rar.validator.LoginValidator;
+import cova.rar.validator.UserValidator;
 
 @Controller
 public class LoginController {
@@ -23,6 +27,13 @@ public class LoginController {
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	private LoginValidator loginValidator;
+	
+	@InitBinder
+	   protected void initBinder(WebDataBinder binder) {
+	      binder.addValidators(loginValidator);
+	   }
 	// go to login page
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
@@ -55,12 +66,17 @@ public class LoginController {
 	
 	@PostMapping("/loginProcess")
 	public String loginProcess(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult) {
-
+	
+	//	User loginUser = userService.validateUser(login);
 		if (bindingResult.hasErrors()) {
 			System.out.println("has error!");
 			return "login";
 		}
-
+		
+		/*
+		 * if(loginUser == null) { return "login"; }
+		 */
+		
 		return "welcome";
 	}
 

@@ -97,7 +97,7 @@ public class RegistrationController {
 	         return "register";
 	      }
 
-
+	      userService.register(user);
 	      return "welcome";
 	}
 }

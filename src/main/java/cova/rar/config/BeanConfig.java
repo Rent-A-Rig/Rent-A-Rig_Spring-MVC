@@ -13,6 +13,7 @@ import cova.rar.dao.UserDao;
 import cova.rar.service.CookieMonster;
 import cova.rar.service.ProductService;
 import cova.rar.service.UserService;
+import cova.rar.validator.LoginValidator;
 import cova.rar.validator.UserValidator;
 
 @Configuration
@@ -25,6 +26,12 @@ public class BeanConfig {
 	public UserValidator getUserValidator() {
 		return new UserValidator();
 	}
+	
+	@Bean
+	public LoginValidator getLoginValidator() {
+		return new LoginValidator();
+	}
+	
 	@Bean
 	public UserService getUserService() {
 		return new UserService();

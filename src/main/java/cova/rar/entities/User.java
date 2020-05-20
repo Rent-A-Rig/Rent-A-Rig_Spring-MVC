@@ -26,6 +26,9 @@ public class User {
 	public User() {
 		this.address = new Address();
 		address.setLine1("");
+		address.setLine2("");
+		address.setState("");
+		address.setZip("");
 	}
 
 
