@@ -67,17 +67,17 @@ public class LoginController {
 	@PostMapping("/loginProcess")
 	public String loginProcess(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult) {
 	
-	//	User loginUser = userService.validateUser(login);
+		Login loginUser = userService.validateUser(login);
 		if (bindingResult.hasErrors()) {
 			System.out.println("has error!");
 			return "login";
 		}
 		
-		/*
-		 * if(loginUser == null) { return "login"; }
-		 */
 		
-		return "welcome";
+		if(loginUser == null) { return "login"; }
+		 
+		
+		return "myAccount";
 	}
 
 }

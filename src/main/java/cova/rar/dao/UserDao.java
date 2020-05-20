@@ -34,11 +34,11 @@ public class UserDao {
 						user.getLastname(), user.getAddress().toString(),user.getEmail(),  user.getPhone()});
 	}
 	
-	public User validateUser(Login login) {
+	public Login validateUser(Login login) {
 		String sql = "select * from user where username='" + login.getUsername()
 		+ "' and password='" + login.getPassword() + "'";
 		
-		List<User> users = jdbcTemplate.query(sql, new UserMapper());
+		List<Login> users = jdbcTemplate.query(sql, new LoginMapper());
 		
 		if (users.size() > 0) {
 			return users.get(0);
@@ -67,7 +67,19 @@ public class UserDao {
 
 			return user;
 		}
-		
+		/*
+		 * class LoginMapper implements RowMapper<Login>{
+		 * 
+		 * @Override public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
+		 * Login login = new Login();
+		 * 
+		 * login.setUsername(rs.getString("username"));
+		 * login.setPassword(rs.getString("password"));
+		 * 
+		 * return login; }
+		 * 
+		 * }
+		 */
 		
 		
 	}

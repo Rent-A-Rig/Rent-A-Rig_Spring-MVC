@@ -98,7 +98,7 @@ public class RegistrationController {
 	      }
 
 	      userService.register(user);
-	      return "welcome";
+	      return "home";
 	}
 }
 
