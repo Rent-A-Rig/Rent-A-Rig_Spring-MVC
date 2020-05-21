@@ -1,10 +1,6 @@
 package cova.rar.validator;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.executable.ExecutableValidator;
-import javax.validation.metadata.BeanDescriptor;
 
-import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Component;
@@ -15,9 +11,6 @@ import cova.rar.entities.User;
 import org.springframework.validation.Validator;
 
 
-/**
- * @author imssbora
- */
 @Component
 public class UserValidator implements Validator {
 
