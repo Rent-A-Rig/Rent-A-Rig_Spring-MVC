@@ -17,8 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 import cova.rar.entities.Cart;
 import cova.rar.entities.CartRedirectEntity;
 import cova.rar.entities.Item;
+import cova.rar.entities.Product;
 import cova.rar.service.CookieMonster;
 import cova.rar.service.ProductService;
+import rar.business.LineItem;
 
 @Controller
 @SessionAttributes("cart")
@@ -83,6 +85,27 @@ public class CartController {
 		}
 
 	}
+	
+	@RequestMapping(value = "/updateCart", method = RequestMethod.POST)
+	public ModelAndView updateCart(@SessionAttribute("cart") Cart cart,
+			HttpServletRequest request, HttpServletResponse response) {
+
+		String[] prodIDs = request.getParameterValues("prodID");
+		String[] quantities = request.getParameterValues("quantity");
+
+		for(int i = 0; i < prodIDs.length; i++) {
+			
+			Product product = productService.getProduct(prodIDs[i]);
+			int qty = Integer.parseInt(quantities[i]);
+			Item item = new Item(product, qty);	
+			cart.updateItem(item);
+			
+		}
+		
+		return new ModelAndView("redirect:/cart", "cart", cart);
+
+	}
+	
 
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
 	public ModelAndView checkout(HttpServletRequest request, HttpServletResponse response) {

@@ -36,7 +36,7 @@
 					<span class="text-muted">Your cart</span> <span
 						class="badge badge-secondary badge-pill">${cart.numItems}</span>
 				</h4>
-				<form action="cart" method="post">
+				<form action="updateCart" method="post">
 				<input type="hidden" name="action" value="updateCart">
 				<ul class="list-group mb-3 sticky-top">			
 				<c:forEach var="item" items="${cart.items}">
@@ -51,9 +51,7 @@
 								type="number">
 						</div>
 					</li>
-					<input type="hidden" name="prodName" value="${item.product.name}">
-					<input type="hidden" name="category" value="${item.product.category}">
-					<input type="hidden" name="price" value="${item.product.price}">
+					<input type="hidden" name="prodID" value="${item.product.id}">
 					
 				</c:forEach>
 					<li class="list-group-item d-flex justify-content-between">

@@ -19,12 +19,15 @@ public class Cart {
 		
 		int index = getItemIndex(item);
 		if (index != -1) {
-			updateItem(item);	
+			int quantity = item.getQty();
+			Item cartItem = items.get(index);
+			cartItem.setQty(cartItem.getQty() + quantity);
 		}
 		else {
 			items.add(item);
-			updateTotal();
 		}
+		
+		updateTotal();
 		
 	}
 	

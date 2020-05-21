@@ -6,6 +6,20 @@ public class Item {
 	private int qty;
 	
 	
+	public Item() {
+		
+		this.product = null;
+		this.qty = 0;
+		
+	}
+	
+	public Item(Product product, int qty) {
+		
+		this.product = product;
+		this.qty = qty;
+		
+	}
+
 	public boolean equals(Item item) {
 		if (item.getProduct().equals(this.product)) {
 			return true;
