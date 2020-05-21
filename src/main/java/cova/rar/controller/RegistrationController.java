@@ -9,9 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.sun.javafx.collections.MappingChange.Map;
 
 import cova.rar.entities.User;
 import cova.rar.service.UserService;
@@ -19,39 +22,45 @@ import cova.rar.validator.UserValidator;
 
 @Controller
 public class RegistrationController {
-	
+
 	@Autowired
 	public UserService userService;
-	
+
 	@Autowired
 	private UserValidator userValidator;
-	
+
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
 		binder.addValidators(userValidator);
 	}
 
-	
+	@GetMapping("/register")
+	// @RequestMapping(method = RequestMethod.GET)
+	public String showForm(Map<String, Object> model) {
+		User user = new User();
+		model.put("user", user);
+
+		return "register";
+	}
+
 	// click on register button
 	@PostMapping("/registerProcess")
-	public String registerProcess(@ModelAttribute("user") @Validated User user, 
-		      BindingResult bindingResult, Model model) {
-		
-	      if (bindingResult.hasErrors()) {
-	    	 System.out.println("Validation has error!");
-	    	 System.out.println(bindingResult.getFieldErrorCount());
-	    	 
-	    	 List<ObjectError> errors = bindingResult.getAllErrors();
-	    	 for(ObjectError error:errors) {
-	    		 System.out.println(error);
-	    	 }
-	    	 System.out.println();
-	         return "register";
-	      }
+	public String registerProcess(@ModelAttribute("user") @Validated User user, BindingResult bindingResult,
+			Model model) {
 
-	      userService.register(user);
-	      return "welcome";
+		if (bindingResult.hasErrors()) {
+			System.out.println("Validation has error!");
+			System.out.println(bindingResult.getFieldErrorCount());
+
+			List<ObjectError> errors = bindingResult.getAllErrors();
+			for (ObjectError error : errors) {
+				System.out.println(error);
+			}
+			System.out.println();
+			return "register";
+		}
+
+		userService.register(user);
+		return "welcome";
 	}
 }
-
-
