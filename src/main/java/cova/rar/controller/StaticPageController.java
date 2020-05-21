@@ -36,5 +36,9 @@ public class StaticPageController {
 	public ModelAndView myAccount() {
 		return new ModelAndView("myAccount");
 	}
-
+	
+	@RequestMapping(value = {"/faq"})
+	public ModelAndView FAQ() {
+		return new ModelAndView("FAQ");
+	}
 }

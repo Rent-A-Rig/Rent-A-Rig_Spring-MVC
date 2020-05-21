@@ -15,7 +15,7 @@ public class UserService {
     return userDao.register(user);
   }
 
-  public User validateUser(Login login) {
+  public Login validateUser(Login login) {
     return userDao.validateUser(login);
   }
 

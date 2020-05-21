@@ -32,19 +32,29 @@
 							class="dropdown-item" href="products?filter=portable">Portables</a> <a
 							class="dropdown-item" href="products?filter=accessories">Accessories</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link"
-					href="register">Log-in/Register</a></li>
+					
+				<c:if test="${param.username == null}">	
+					<li class="nav-item"><a class="nav-link"
+						href="register">Log-in/Register</a></li>
+				</c:if>
+					
 				<li class="nav-item"><a class="nav-link" href="myAccount">Account</a>
 				</li>
 				<li class="nav-item"><a class="nav-link"
 					href="cart?action=viewCart">Cart</a></li>
 			</ul>
+			
+			<c:if test="${param.username != null}">
 			<div class="collapse navbar-collapse" id="#navbars">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link">Hello, Welcome
-							<%=request.getParameter("firstname")%>!</a></li>
+							<%=request.getParameter("username")%>!</a></li>
+					<li class="nav-item"><a class="nav-link" href="logoutProcess">LogOut</a>
+				</li>
 				</ul>
 			</div>
+			</c:if>
+			
 			
 			<form class="form-inline my-2 my-lg-0" action="products">
 				<input class="form-control mr-sm-2" type="text" placeholder="Search Products"
