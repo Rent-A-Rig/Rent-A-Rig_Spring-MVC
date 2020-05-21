@@ -1,10 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/mainStyles.css'/>">
-<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/homePage.css'/>">
+<link href='<spring:url value="/resources/css/mainStyles.css"/>' rel="stylesheet">
+<link href='<spring:url value="/resources/css/homePage.css" />' rel="stylesheet">
 <title>Rent-A-Rig</title>
 </head>
 <body>
