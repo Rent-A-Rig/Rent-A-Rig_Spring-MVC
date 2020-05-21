@@ -21,7 +21,6 @@ import org.springframework.jdbc.support.KeyHolder;
 
 import cova.rar.entities.Item;
 import cova.rar.entities.Order;
-import cova.rar.entities.Product;
 
 public class OrderDao {
 	
