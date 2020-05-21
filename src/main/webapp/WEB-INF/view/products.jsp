@@ -65,7 +65,7 @@
 										<h3>${product.name}</h3>
 										<p>${product.shortDesc}</p>
 										<p>
-											<b>Pricing: </b> ${product.price}
+											<b>Pricing: </b> $${product.price}/month
 										</p>
 										<form:form modelAttribute="cartRedirectEntity" action="addToCart">
 											<div class="number-input md-number-input float-left">

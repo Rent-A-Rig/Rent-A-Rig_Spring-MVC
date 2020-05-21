@@ -2,7 +2,7 @@ package cova.rar.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,17 +65,18 @@ public class CartController {
 		// redirect back to /products view with products obj
 		return "redirect:/products?filter=" + filter;
 	}
-
+	
+	
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public ModelAndView showCart(@SessionAttribute("cart") Cart cart,
+	public ModelAndView showCartPOST(@ModelAttribute("cart") Cart cart,
 			HttpServletRequest request, HttpServletResponse response) {
 
 		// if not logged in redirect to log in page
 		// if no items in cart (or null) send to empty cart view
 
-//		if (!cookieMonster.isLoggedIn(request)) {
-//			return new ModelAndView("redirect:/login");
-//		}
+		if (!cookieMonster.isLoggedIn(request)) {
+			return new ModelAndView("redirect:/login");
+		}
 		if (null == cart || cart.getItems().size() < 1) {
 			return new ModelAndView("emptyCart");
 		} else {
@@ -103,22 +104,6 @@ public class CartController {
 		
 		return new ModelAndView("redirect:/cart", "cart", cart);
 
-	}
-	
-
-	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
-	public ModelAndView checkout(HttpServletRequest request, HttpServletResponse response) {
-
-		// if no items in cart send to empty cart view
-
-		// add items from cart into orders database
-		// update products inventory
-		// if product inventory is less than one -> do not update and mark product
-		// get orders from database
-
-		// send to orders view with orders from db and products that cant be displayed
-
-		return null;
 	}
 
 	

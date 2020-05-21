@@ -7,8 +7,16 @@ import java.util.List;
 public class Order {
 	
 	private Date date;
+	private int id;
 	private List<Item> items;
 	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Date getDate() {
 		return date;
 	}

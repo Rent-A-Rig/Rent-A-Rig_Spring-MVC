@@ -36,10 +36,10 @@ public class RegistrationController {
 	@Autowired
 	CookieMonster cookieMonster;
 	
-	 @InitBinder
-	   protected void initBinder(WebDataBinder binder) {
-	      binder.addValidators(userValidator);
-	   }
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+		binder.addValidators(userValidator);
+	}
 	 
 	@GetMapping("/register")
 	// @RequestMapping(method = RequestMethod.GET)
