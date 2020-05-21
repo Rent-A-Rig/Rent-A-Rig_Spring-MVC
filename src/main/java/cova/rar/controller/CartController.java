@@ -20,7 +20,6 @@ import cova.rar.entities.Item;
 import cova.rar.entities.Product;
 import cova.rar.service.CookieMonster;
 import cova.rar.service.ProductService;
-import rar.business.LineItem;
 
 @Controller
 @SessionAttributes("cart")
