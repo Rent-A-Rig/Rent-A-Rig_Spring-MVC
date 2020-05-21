@@ -1,6 +1,10 @@
 package cova.rar.controller;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +18,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.sun.javafx.collections.MappingChange.Map;
 
 import cova.rar.entities.User;
+import cova.rar.service.CookieMonster;
 import cova.rar.service.UserService;
 import cova.rar.validator.UserValidator;
 
@@ -28,12 +32,15 @@ public class RegistrationController {
 
 	@Autowired
 	private UserValidator userValidator;
-
-	@InitBinder
-	protected void initBinder(WebDataBinder binder) {
-		binder.addValidators(userValidator);
-	}
-
+	
+	@Autowired
+	CookieMonster cookieMonster;
+	
+	 @InitBinder
+	   protected void initBinder(WebDataBinder binder) {
+	      binder.addValidators(userValidator);
+	   }
+	 
 	@GetMapping("/register")
 	// @RequestMapping(method = RequestMethod.GET)
 	public String showForm(Map<String, Object> model) {
@@ -45,22 +52,25 @@ public class RegistrationController {
 
 	// click on register button
 	@PostMapping("/registerProcess")
-	public String registerProcess(@ModelAttribute("user") @Validated User user, BindingResult bindingResult,
-			Model model) {
+	public String registerProcess(@ModelAttribute("user") @Validated User user, 
+		      BindingResult bindingResult, Model model, HttpServletRequest request, HttpServletResponse response) {
+		
+	      if (bindingResult.hasErrors()) {
+	    	 System.out.println("Validation has error!");
+	    	 System.out.println(bindingResult.getFieldErrorCount());
+	    	 
+	    	 List<ObjectError> errors = bindingResult.getAllErrors();
+	    	 for(ObjectError error:errors) {
+	    		 System.out.println(error);
+	    	 }
+	    	 System.out.println();
+	         return "register";
+	      }
 
-		if (bindingResult.hasErrors()) {
-			System.out.println("Validation has error!");
-			System.out.println(bindingResult.getFieldErrorCount());
+	      userService.register(user);
+	      cookieMonster.setLoginCookie(request, response);
+	      cookieMonster.setUserCookie(user, response);
+	      return "home";
 
-			List<ObjectError> errors = bindingResult.getAllErrors();
-			for (ObjectError error : errors) {
-				System.out.println(error);
-			}
-			System.out.println();
-			return "register";
-		}
-
-		userService.register(user);
-		return "welcome";
 	}
 }
