@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cova.rar.entities.Login;
 import cova.rar.entities.User;
+import cova.rar.service.CookieMonster;
 import cova.rar.service.UserService;
 import cova.rar.validator.LoginValidator;
 import cova.rar.validator.UserValidator;
@@ -30,6 +31,9 @@ public class LoginController {
 	@Autowired
 	private LoginValidator loginValidator;
 	
+	@Autowired
+	CookieMonster cookieMonster;
+	
 	@InitBinder
 	   protected void initBinder(WebDataBinder binder) {
 	      binder.addValidators(loginValidator);
@@ -42,30 +46,9 @@ public class LoginController {
 		return mv;
 	}
 	
-	// click on login
-	/*
-	 * @RequestMapping(value = "loginProcess", method = RequestMethod.GET) public
-	 * ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse
-	 * response,
-	 * 
-	 * @ModelAttribute("login") Login login) {
-	 * 
-	 * ModelAndView mv = null;
-	 * 
-	 * User user = userService.validateUser(login);
-	 * 
-	 * if (null != user) { mv = new ModelAndView("welcome");
-	 * mv.addObject("firstName", user.getFirstname());
-	 * 
-	 * } else { mv = new ModelAndView("login"); mv.addObject("message",
-	 * "Username or Password is incorrect!"); }
-	 * 
-	 * 
-	 * return mv; }
-	 */
-	
+
 	@PostMapping("/loginProcess")
-	public String loginProcess(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult) {
+	public String loginProcess(@Valid @ModelAttribute("login") Login login, BindingResult bindingResult, HttpServletRequest request, HttpServletResponse response) {
 	
 		Login loginUser = userService.validateUser(login);
 		if (bindingResult.hasErrors()) {
@@ -76,8 +59,15 @@ public class LoginController {
 		
 		if(loginUser == null) { return "login"; }
 		 
-		
-		return "myAccount";
+		cookieMonster.setLoginCookie(request, response);
+		cookieMonster.setUserCookie2(login, response);
+		return "home";
 	}
-
+	@RequestMapping("/logoutProcess")
+	public String logoutProcess(HttpServletRequest request, HttpServletResponse response) {
+		cookieMonster.setLogoutCookie(request, response);
+		
+		return "redirect:home";
+		
+	}
 }

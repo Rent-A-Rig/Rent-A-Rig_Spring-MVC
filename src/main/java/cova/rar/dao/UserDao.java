@@ -39,6 +39,7 @@ public class UserDao {
 		+ "' and password='" + login.getPassword() + "'";
 		
 		List<Login> users = jdbcTemplate.query(sql, new LoginMapper());
+		System.out.println("size: "+users.size());
 		
 		if (users.size() > 0) {
 			return users.get(0);

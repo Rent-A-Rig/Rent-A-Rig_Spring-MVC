@@ -43,10 +43,11 @@
                     </tr>
                 </table>
             </form:form>
-            <table align="center">
+            
+            <%-- <table align="center">
                 <tr>
                     <td style="font-style: italic; color: red;">${message}</td>
                 </tr>
-            </table>
+            </table> --%>
         </body>
         </html>

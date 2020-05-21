@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import cova.rar.entities.User;
+import cova.rar.service.CookieMonster;
 import cova.rar.service.UserService;
 import cova.rar.validator.UserValidator;
 
@@ -36,39 +37,13 @@ public class RegistrationController {
 	@Autowired
 	private UserValidator userValidator;
 	
+	@Autowired
+	CookieMonster cookieMonster;
+	
 	 @InitBinder
 	   protected void initBinder(WebDataBinder binder) {
 	      binder.addValidators(userValidator);
 	   }
-	// go to registration page
-//	@RequestMapping(value = "/register", method = RequestMethod.GET)
-//	public ModelAndView showResgister(HttpServletRequest request, HttpServletResponse response) {
-//		
-//		ModelAndView mv = new ModelAndView("register");
-//		mv.addObject("user", new User());
-//		
-//		return mv;
-//	}
-//	
-//	// click on register button
-//	@PostMapping(value = "/registerProcess")
-//	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
-//			  @Valid @ModelAttribute("user") User user, BindingResult result) {
-//		ModelAndView model;
-//	    if (result.hasErrors()) {
-//	        model = new ModelAndView("user", result.getModel());
-//		}
-//		
-//		userService.register(user);
-//		return new ModelAndView("welcome", "firstname", user.getFirstname());
-//	}
-	
-	
-	
-//	//@Override
-//	public void addViewControllers(ViewControllerRegistry registry) {
-//		registry.addViewController("/results").setViewName("results");
-//	}
 
 	@GetMapping("/register")
 	//@RequestMapping(method = RequestMethod.GET)
@@ -83,7 +58,7 @@ public class RegistrationController {
 	// click on register button
 	@PostMapping("/registerProcess")
 	public String registerProcess(@ModelAttribute("user") @Validated User user, 
-		      BindingResult bindingResult, Model model) {
+		      BindingResult bindingResult, Model model, HttpServletRequest request, HttpServletResponse response) {
 		
 	      if (bindingResult.hasErrors()) {
 	    	 System.out.println("Validation has error!");
@@ -98,6 +73,8 @@ public class RegistrationController {
 	      }
 
 	      userService.register(user);
+	      cookieMonster.setLoginCookie(request, response);
+	      cookieMonster.setUserCookie(user, response);
 	      return "home";
 	}
 }
