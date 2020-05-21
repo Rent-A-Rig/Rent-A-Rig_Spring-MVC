@@ -15,16 +15,20 @@
                         </td>
                         <td>
                             <form:input path="username" name="username" id="username" />
+                            <form:errors path="username"></form:errors>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td>
                             <form:label path="password">Password:</form:label>
                         </td>
                         <td>
                             <form:password path="password" name="password" id="password" />
+                            <form:errors path="password"></form:errors>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td></td>
                         <td align="left">
@@ -39,10 +43,11 @@
                     </tr>
                 </table>
             </form:form>
-            <table align="center">
+            
+            <%-- <table align="center">
                 <tr>
                     <td style="font-style: italic; color: red;">${message}</td>
                 </tr>
-            </table>
+            </table> --%>
         </body>
         </html>

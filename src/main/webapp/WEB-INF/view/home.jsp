@@ -82,7 +82,7 @@
 	</div>
 	<div class="container6">
 		<h2 style="color: white;">Learn More About Us</h2>
-		<a href="FAQ.html" class="go-btn btn btn-warning">FAQ</a>
+		<a href="faq" class="go-btn btn btn-warning">FAQ</a>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
