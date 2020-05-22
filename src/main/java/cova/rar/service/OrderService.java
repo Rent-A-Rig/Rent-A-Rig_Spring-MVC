@@ -8,6 +8,7 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import cova.rar.dao.OrderDao;
+import cova.rar.dao.ProductDao;
 import cova.rar.entities.Cart;
 import cova.rar.entities.Order;
 
