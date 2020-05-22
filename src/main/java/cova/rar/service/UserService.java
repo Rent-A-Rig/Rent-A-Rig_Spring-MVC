@@ -5,6 +5,7 @@ import cova.rar.entities.Login;
 import cova.rar.entities.User;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,13 @@ public class UserService {
   public void setUserCookies(HttpServletRequest request, HttpServletResponse response) {
 
 	  String username = cookieMonster.getCookie("username", request).getValue();
-	  User user = userDao.getUser(username);
+	  User user = null;
+	try {
+		user = userDao.getUser(username, response);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 
 	  cookieMonster.setCookie("firstname", user.getFirstname(), response);
 	  cookieMonster.setCookie("lastname", user.getLastname(), response);
