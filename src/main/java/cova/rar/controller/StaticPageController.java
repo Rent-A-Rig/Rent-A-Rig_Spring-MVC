@@ -44,4 +44,13 @@ public class StaticPageController {
 		return new ModelAndView("FAQ");
 	}
 	
+	@RequestMapping(value = {"/feedback"})
+	public ModelAndView feedback() {
+		return new ModelAndView("feedback");
+	}
+	
+	@RequestMapping(value = {"/thankYou"})
+	public ModelAndView thankyou() {
+		return new ModelAndView("thankYou");
+	}
 }
