@@ -60,37 +60,14 @@ public class CookieMonster {
 	
 	public void setLogoutCookie(HttpServletRequest request, HttpServletResponse response) {
 		Cookie[] cookies = request.getCookies();
-		Cookie loginCookie = null;
-		Cookie userCookie = null;
 		if (null != cookies) {
 			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("login")) {
-					loginCookie = cookie;
-				}
-				if (cookie.getName().equals("username")) {
-					userCookie = cookie;
-				}
+				cookie.setPath("/");
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
 			}
 		}
-		for (Cookie c: cookies) {
-			c.setMaxAge(0);
-			
-		}
 		
-		
-		if (null == loginCookie || loginCookie.getValue().equals("true")) {
-			loginCookie = new Cookie("login", "false");
-			loginCookie.setPath("/");
-			loginCookie.setMaxAge(0);
-			for (Cookie c: cookies) {
-				c.setMaxAge(0);
-			}
-			response.addCookie(loginCookie);
-		}
-			
-			userCookie.setPath("/");
-			userCookie.setMaxAge(0);
-			response.addCookie(userCookie);
 		
 	}
 	
