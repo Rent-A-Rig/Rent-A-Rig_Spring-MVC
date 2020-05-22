@@ -86,7 +86,7 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "/updateCart", method = RequestMethod.POST)
-	public ModelAndView updateCart(@SessionAttribute("cart") Cart cart,
+	public ModelAndView updateCart(@ModelAttribute("cart") Cart cart,
 			HttpServletRequest request, HttpServletResponse response) {
 
 		String[] prodIDs = request.getParameterValues("prodID");
