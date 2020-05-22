@@ -66,6 +66,35 @@ public class ProductDao {
 		
 		return jdbcTemplate.queryForObject(sql, new ProductMapper());
 	}
+	
+	public List<Item> removeInventory(List<Item> items) {
+		List<Item> itemsOutOfStock = new ArrayList<Item>();
+		for (Item item : items) {
+
+			String prodID = item.getProduct().getId();
+			String qtyStmt = "SELECT STOCK FROM PRODUCTS WHERE PRODUCT_ID = "  + "\"" + prodID + "\"";
+
+			int qty = (int) jdbcTemplate.queryForObject(qtyStmt, new RowMapper<Integer>() {
+
+				@Override
+				public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
+					return rs.getInt("STOCK");
+				}
+
+			});
+			if (qty >= item.getQty()) {
+				qty -= item.getQty();
+				String updateStmt = "UPDATE PRODUCTS SET STOCK = " + qty + " WHERE PRODUCT_ID= " + "\"" + prodID + "\"";
+				jdbcTemplate.execute(updateStmt);
+			}
+			else {
+				itemsOutOfStock.add(item);
+			}
+
+		}
+
+		return itemsOutOfStock;
+	}
 
 	class ProductMapper implements RowMapper<Product> {
 
