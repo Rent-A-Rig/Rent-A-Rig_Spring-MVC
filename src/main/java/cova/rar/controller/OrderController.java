@@ -38,7 +38,7 @@ public class OrderController {
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public ModelAndView checkout(@ModelAttribute("cart") Cart cart, WebRequest webReq,
 			SessionStatus status, HttpServletRequest request) {
-		
+	
 		String userID = cookieMonster.getCookie("username", request).getValue();
 		
 		orderService.addCart(cart, userID);

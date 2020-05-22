@@ -32,9 +32,7 @@
 
 	<div class="container">
 		<!-- Page Heading -->
-		<h1 class="my-4">
-			<!-- search category -->
-		</h1>
+		<h1 class="my-4">Products</h1>
 
 		<!-- Product One -->
 		<c:forEach var="product" items="${cartRedirectEntity.products}">
@@ -50,22 +48,30 @@
 					<p>
 						<b>Pricing: </b> $${product.price}/month
 					</p>
-					<form:form modelAttribute="cartRedirectEntity" action="addToCart">
-						<div class="number-input md-number-input float-left">
-							<button type="button"
-								onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-								class="minus"></button>
-							<form:input class="quantity" min="0" path="quantity" value="1"
-								type="number" />
-							<button type="button"
-								onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-								class="plus"></button>
-						</div>
 
-						<form:hidden path="filter" value="${cre.filter}" />
-						<form:hidden path="prodID" value="${product.id}" />
-						<button type="submit" class="btn btn-primary">Add to Cart</button>
-					</form:form>
+					<c:if test='${product.inventory < 1}'>
+						<button type="button" class="btn btn-primary">Out of
+							Stock</button>
+					</c:if>
+					<c:if test='${product.inventory >= 1}'>
+						<form:form modelAttribute="cartRedirectEntity" action="addToCart">
+							<div class="number-input md-number-input float-left">
+								<button type="button"
+									onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+									class="minus"></button>
+								<form:input class="quantity" min="0" path="quantity" value="1"
+									type="number" />
+								<button type="button"
+									onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+									class="plus"></button>
+							</div>
+							<form:hidden path="filter" value="${cartRedirectEntity.filter}" />
+							<form:hidden path="prodID" value="${product.id}" />
+							<button type="submit" class="btn btn-primary">Add to
+								Cart</button>
+						</form:form>
+					</c:if>
+
 				</div>
 				<div id="accordion" role="tablist" aria-multiselectable="true">
 					<div class="card">
