@@ -29,6 +29,8 @@ public class OrderService {
 		
 		orderDao.addItems(orderID, cart.getItems());
 		
+		productDao.removeInventory(cart.getItems());
+		
 	}
 	
 	public List<Order> getOrderHistory(String userID) {
