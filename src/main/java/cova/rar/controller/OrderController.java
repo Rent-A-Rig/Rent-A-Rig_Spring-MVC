@@ -16,6 +16,7 @@ import cova.rar.service.CookieMonster;
 import cova.rar.service.OrderService;
 
 @Controller
+@SessionAttributes("cart")
 public class OrderController {
 	
 	@Autowired
