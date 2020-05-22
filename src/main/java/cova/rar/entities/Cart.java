@@ -36,7 +36,10 @@ public class Cart {
 		int qty = item.getQty();
 		int i = getItemIndex(item);
 
-		if (qty == 0) {
+		if (i == -1) {
+			return;
+		}
+		else if (qty == 0 && i != -1) {
 			items.remove(i);
 		} else {
 			items.get(i).setQty(qty);
