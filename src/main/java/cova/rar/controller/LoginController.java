@@ -60,7 +60,10 @@ public class LoginController {
 		if(loginUser == null) { return "login"; }
 
 		
-		return "home";
+		cookieMonster.setLoginCookie(request, response);
+		cookieMonster.setUserCookie2(login, response);
+		
+		return "redirect:home";
 	}
 	@RequestMapping("/logoutProcess")
 	public String logoutProcess(HttpServletRequest request, HttpServletResponse response) {
