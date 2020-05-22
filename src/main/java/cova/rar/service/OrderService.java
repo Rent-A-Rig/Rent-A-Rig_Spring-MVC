@@ -15,6 +15,9 @@ public class OrderService {
 
 	@Autowired
 	OrderDao orderDao;
+	
+	@Autowired
+	ProductDao productDao;
 
 	public void addCart(Cart cart, String userID) {
 
