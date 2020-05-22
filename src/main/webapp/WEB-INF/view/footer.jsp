@@ -58,9 +58,6 @@
 						<a href="register">Register / Log-in</a>
 					</p>
 					<p>
-						<a href="contactus">Contact Us</a>
-					</p>
-					<p>
 						<a href="faq">FAQ</a>
 					</p>
 					<p>
