@@ -30,7 +30,4 @@ public class Order {
 		this.items = items;
 	}
 
-	
-	
-
 }

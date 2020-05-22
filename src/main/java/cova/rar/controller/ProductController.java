@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import cova.rar.entities.CartRedirectEntity;
 import cova.rar.entities.Product;
 import cova.rar.service.ProductService;
 
@@ -25,7 +24,6 @@ public class ProductController {
 	public ModelAndView productPage(HttpServletRequest request, HttpServletResponse response) {
 
 		List<Product> products = null;
-		
 		String filter = "all"; // default value for filter
 		
 		if (null != request.getParameter("filter")) {
@@ -34,9 +32,8 @@ public class ProductController {
 		
 		System.out.println(filter);
 		products = productService.getProducts(filter);
-		CartRedirectEntity cre = new CartRedirectEntity(products, filter);
 
-		return new ModelAndView("products", "cartRedirectEntity", cre);
+		return new ModelAndView("products", "products", products);
 		
 	}
 

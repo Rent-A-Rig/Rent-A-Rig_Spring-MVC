@@ -1,5 +1,7 @@
 package cova.rar.service;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +10,7 @@ import cova.rar.entities.Login;
 import cova.rar.entities.User;
 
 public class CookieMonster {
+	
 	
 	public void setUserCookie(User user, HttpServletResponse response) {
 
@@ -83,10 +86,19 @@ public class CookieMonster {
 			response.addCookie(userCookie);
 		
 	}
-
+	
 	public boolean isLoggedIn(HttpServletRequest request) {
-
-		Cookie loginCookie = getCookie("login", request);
+		
+		Cookie[] cookies = request.getCookies();
+		Cookie loginCookie = null;
+		if (null != cookies) {
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("login")) {
+					loginCookie = cookie;
+				}
+			}
+		}
+		
 		
 		if (null == loginCookie || loginCookie.getValue().equals("false")) {
 			return false;
@@ -98,44 +110,25 @@ public class CookieMonster {
 	}
 
 	public void initLogin(HttpServletRequest request, HttpServletResponse response) {
-		// init the login and session cookies
-		
-		Cookie loginCookie = getCookie("login", request);
-		Cookie sessionCookie = getCookie("session", request);
-		String sessionID = request.getSession().getId();
-		if (null == loginCookie) {
-			setCookie("login", "false", response);
-		}
-		if (null == sessionCookie || !sessionID.equals(sessionCookie.getValue())) {
-			setCookie("session", request.getSession().getId(), response);		
-		}
-		
-
-	}
-	
-	public void setCookie(String name, String value, HttpServletResponse response) {
-		
-		Cookie cookie = new Cookie(name, value);
-		cookie.setPath("/");
-		cookie.setMaxAge(60 * 60 * 24 * 365 * 2);
-		response.addCookie(cookie);
-		
-	}
-	
-	public Cookie getCookie(String cookieName, HttpServletRequest request) {
 		
 		Cookie[] cookies = request.getCookies();
-
+		Cookie loginCookie = null;
 		if (null != cookies) {
-			for (Cookie c : cookies) {
-				if (c.getName().equals(cookieName)) {
-					return c;
+			for (Cookie cookie : cookies) {
+				if (cookie.getName().equals("login")) {
+					loginCookie = cookie;
 				}
 			}
 		}
 		
-		return null;
+		if (null == loginCookie) {
+			loginCookie = new Cookie("login", "false");
+			loginCookie.setPath("/");
+			loginCookie.setMaxAge(60 * 60 * 24 * 365 * 2);
+			response.addCookie(loginCookie);
+			
+		}
+
 	}
 
 }
- 
