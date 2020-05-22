@@ -58,13 +58,7 @@
 						<a href="register">Register / Log-in</a>
 					</p>
 					<p>
-						<a href="home">Contact Us</a>
-					</p>
-					<p>
 						<a href="faq">FAQ</a>
-					</p>
-					<p>
-						<a href="feedback">Feedback</a>
 					</p>
 				</div>
 				<!-- Grid column -->
