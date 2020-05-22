@@ -60,6 +60,9 @@
 					<p>
 						<a href="faq">FAQ</a>
 					</p>
+					<p>
+						<a href="feedback">Feedback</a>
+					</p>
 				</div>
 				<!-- Grid column -->
 				<hr class="w-100 clearfix d-md-none">
@@ -86,7 +89,7 @@
 				<div class="col-md-7 col-lg-8">
 					<!--Copyright-->
 					<p class="text-center text-md-left">
-						© 2020 Copyright: <a href="home"> <strong>RentARig</strong>
+						Â© 2020 Copyright: <a href="home"> <strong>RentARig</strong>
 						</a>
 					</p>
 				</div>

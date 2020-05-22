@@ -35,7 +35,7 @@ public class Cart {
 
 		int qty = item.getQty();
 		int i = getItemIndex(item);
-		
+
 		if (i == -1) {
 			return;
 		}

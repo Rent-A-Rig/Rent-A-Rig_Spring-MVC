@@ -38,7 +38,11 @@ public class OrderController {
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public ModelAndView checkout(@ModelAttribute("cart") Cart cart, WebRequest webReq,
 			SessionStatus status, HttpServletRequest request) {
-	
+
+
+		// add items from cart into orders database
+		
+		
 		String userID = cookieMonster.getCookie("username", request).getValue();
 		
 		orderService.addCart(cart, userID);
@@ -46,9 +50,14 @@ public class OrderController {
 		status.setComplete();
 		webReq.removeAttribute("cart", WebRequest.SCOPE_SESSION);
 		
+		// update products inventory
+		// if product inventory is less than one -> do not update and mark product
+		// get orders from database
+
+		// send to orders view with orders from db and products that cant be displayed
 		OrderHistory orderHistory = new OrderHistory();
 		orderHistory.setOrders(orderService.getOrderHistory(userID));
-
+		
 		return new ModelAndView("orderhistory", "orderhistory", orderHistory);
 	}
 	

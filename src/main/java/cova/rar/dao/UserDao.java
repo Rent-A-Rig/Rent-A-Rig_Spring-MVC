@@ -4,10 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import cova.rar.entities.Login;
 import cova.rar.entities.User;
+import cova.rar.service.CookieMonster;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -49,12 +51,12 @@ public class UserDao {
 		}
 	}
 	
-	public User getUser(String username) {
+	public User getUser(String username, HttpServletResponse response) throws SQLException {
 		
-		String sql = "SELECT * FROM user WHERE USERNAME = '" + username + "'";
+		String sql = "Select * from user where username = '" + username + "'";
 		User user = jdbcTemplate.queryForObject(sql, new UserMapper());
-		
 		return user;
+		
 	}
 	
 	class UserMapper implements RowMapper<User> {
@@ -64,6 +66,7 @@ public class UserDao {
 
 			User user = new User();
 			
+			// no address atm
 			user.setUsername(rs.getString("username"));
 		    user.setPassword(rs.getString("password"));
 		    user.setFirstname(rs.getString("first_name"));
@@ -74,7 +77,21 @@ public class UserDao {
 
 			return user;
 		}
-
+		/*
+		 * class LoginMapper implements RowMapper<Login>{
+		 * 
+		 * @Override public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
+		 * Login login = new Login();
+		 * 
+		 * login.setUsername(rs.getString("username"));
+		 * login.setPassword(rs.getString("password"));
+		 * 
+		 * return login; }
+		 * 
+		 * }
+		 */
+		
+		
 	}
 	
 }

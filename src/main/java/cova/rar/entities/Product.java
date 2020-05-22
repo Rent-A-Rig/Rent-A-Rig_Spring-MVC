@@ -17,8 +17,8 @@ public class Product {
 		else {
 			return false;
 		}
-		
-		
+
+
 	}
 	
 	public String getId() {

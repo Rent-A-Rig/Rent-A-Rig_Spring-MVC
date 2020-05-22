@@ -71,6 +71,8 @@ public class CookieMonster {
 		
 	}
 	
+	
+	
 	public boolean isLoggedIn(HttpServletRequest request) {
 
 		Cookie loginCookie = getCookie("login", request);
