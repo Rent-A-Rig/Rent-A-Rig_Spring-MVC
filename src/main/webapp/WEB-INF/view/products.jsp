@@ -29,6 +29,7 @@
 <body>
 
 	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 
 	<div class="container">
 		<!-- Page Heading -->
