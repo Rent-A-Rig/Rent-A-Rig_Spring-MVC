@@ -69,8 +69,8 @@ public class UserDao {
 			// no address atm
 			user.setUsername(rs.getString("username"));
 		    user.setPassword(rs.getString("password"));
-		    user.setFirstname(rs.getString("firstname"));
-		    user.setLastname(rs.getString("lastname"));
+		    user.setFirstname(rs.getString("first_name"));
+		    user.setLastname(rs.getString("last_name"));
 		    user.setAddress(rs.getString("address"));
 		    user.setEmail(rs.getString("email"));
 		    user.setPhone(rs.getString("phone"));
