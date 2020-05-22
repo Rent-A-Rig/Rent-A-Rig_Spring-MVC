@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import cova.rar.service.CookieMonster;
+import cova.rar.service.UserService;
 
 @Controller
 
@@ -16,6 +17,9 @@ public class StaticPageController {
 	
 	@Autowired
 	CookieMonster cookieMonster;
+	
+	@Autowired
+	UserService userService;
 	
 	// map requestmappings to static pages
 	@RequestMapping(value= {"/home"})
@@ -33,8 +37,20 @@ public class StaticPageController {
 	}
 
 	@RequestMapping(value = {"/myAccount"})
-	public ModelAndView myAccount() {
-		return new ModelAndView("myAccount");
+	public ModelAndView myAccount(HttpServletRequest request, HttpServletResponse response) {
+		
+		if (!cookieMonster.isLoggedIn(request)) {
+			return new ModelAndView("redirect:/login");
+		}
+		else if (null == cookieMonster.getCookie("firstname", request)) {
+			userService.setUserCookies(request, response);
+			return new ModelAndView("myAccount");
+		}
+		else {
+			return new ModelAndView("myAccount");
+		}
+		
+		
 	}
 	
 	@RequestMapping(value = {"/faq"})
