@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cova.rar.entities.User;
 import cova.rar.service.CookieMonster;
+import cova.rar.service.UserService;
 
 @Controller
 
