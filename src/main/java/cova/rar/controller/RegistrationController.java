@@ -75,7 +75,7 @@ public class RegistrationController {
 	      userService.register(user);
 	      cookieMonster.setLoginCookie(request, response);
 	      cookieMonster.setUserCookie(user, response);
-	      return "home";
+	      return "redirect:home";
 	}
 }
 
