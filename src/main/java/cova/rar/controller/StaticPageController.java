@@ -19,6 +19,9 @@ public class StaticPageController {
 	@Autowired
 	CookieMonster cookieMonster;
 	
+	@Autowired
+	UserService userService;
+	
 	// map requestmappings to static pages
 	@RequestMapping(value= {"/home"})
 	public ModelAndView home() {
