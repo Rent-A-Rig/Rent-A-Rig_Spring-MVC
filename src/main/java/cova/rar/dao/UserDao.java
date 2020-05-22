@@ -73,8 +73,7 @@ public class UserDao {
 		    user.setLastname(rs.getString("last_name"));
 		    user.setAddress(rs.getString("address"));
 		    user.setEmail(rs.getString("email"));
-		    user.setPhone(rs.getString("phone"));
-		    System.out.println(user.getUsername());
+		    user.setPhone(rs.getString("phone_number"));
 
 			return user;
 		}
