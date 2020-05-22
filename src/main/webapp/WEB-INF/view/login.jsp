@@ -6,14 +6,18 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
 </head>
 <body>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div class="container">
 
 		<h2 align="center">Sign-In</h2>
@@ -21,29 +25,30 @@
 			method="post">
 			<table align="center">
 				<div class="form-group">
-				<tr>
-					<td><form:label path="username">Username: </form:label></td>
-					<td><form:input path="username" name="username" id="username" />
-						<form:errors path="username" class="text-danger"></form:errors></td>
-				</tr>
+					<tr>
+						<td><form:label path="username">Username: </form:label></td>
+						<td><form:input path="username" name="username" id="username" />
+							<form:errors path="username" class="text-danger"></form:errors></td>
+					</tr>
 				</div>
 
 				<div class="form-group">
-				<tr>
-					<td><form:label path="password">Password:</form:label></td>
-					<td><form:password path="password" name="password"
-							id="password" /> <form:errors path="password" class="text-danger"></form:errors></td>
-				</tr>
-				
-				</div>
-				
+					<tr>
+						<td><form:label path="password">Password:</form:label></td>
+						<td><form:password path="password" name="password"
+								id="password" /> <form:errors path="password"
+								class="text-danger"></form:errors></td>
+					</tr>
 
-				
+				</div>
+
+
+
 				<tr>
-					<td><form:button id="login" name="login" class="btn btn-primary">Login</form:button>
-					</td>
+					<td><form:button id="login" name="login"
+							class="btn btn-primary">Login</form:button></td>
 				</tr>
-				
+
 				<tr>
 					<td><a href="home">Home</a></td>
 				</tr>
@@ -53,5 +58,7 @@
 			</table>
 		</form:form>
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>
