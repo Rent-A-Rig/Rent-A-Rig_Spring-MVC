@@ -63,7 +63,6 @@
 					type="submit">GO</button>
 			</form>
 		</div>
-
 	</nav>
 
 </body>

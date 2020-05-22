@@ -2,6 +2,7 @@ package cova.rar.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import cova.rar.entities.Item;
 import cova.rar.entities.Product;
 
 public class ProductDao {
@@ -65,6 +67,35 @@ public class ProductDao {
 		String sql = "select * from products where PRODUCT_ID = " + "\"" + prodID + "\"";
 		
 		return jdbcTemplate.queryForObject(sql, new ProductMapper());
+	}
+	
+	public List<Item> removeInventory(List<Item> items) {
+		List<Item> itemsOutOfStock = new ArrayList<Item>();
+		for (Item item : items) {
+			
+			String prodID = item.getProduct().getId();
+			String qtyStmt = "SELECT STOCK FROM PRODUCTS WHERE PRODUCT_ID = "  + "\"" + prodID + "\"";
+			
+			int qty = (int) jdbcTemplate.queryForObject(qtyStmt, new RowMapper<Integer>() {
+
+				@Override
+				public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
+					return rs.getInt("STOCK");
+				}
+				
+			});
+			if (qty >= item.getQty()) {
+				qty -= item.getQty();
+				String updateStmt = "UPDATE PRODUCTS SET STOCK = " + qty + " WHERE PRODUCT_ID= " + "\"" + prodID + "\"";
+				jdbcTemplate.execute(updateStmt);
+			}
+			else {
+				itemsOutOfStock.add(item);
+			}
+			
+		}
+		
+		return itemsOutOfStock;
 	}
 
 	class ProductMapper implements RowMapper<Product> {

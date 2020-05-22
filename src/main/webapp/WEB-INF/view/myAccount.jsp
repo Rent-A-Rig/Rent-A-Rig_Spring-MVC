@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,26 +7,16 @@
 <title>My Account</title>
 </head>
 <body>
-<p>
-		Hello,
-		${user.firstname}</p>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<br>
-	<p>
-		Username:
-		<%=request.getParameter("username")%></p>
-	<p>
-		first name:
-		<%=request.getParameter("firstname")%></p>
-	<p>
-		last name:
-		<%=request.getParameter("lastname")%></p>
-	<p>
-		email:
-		<%=request.getParameter("email")%></p>
-	<p>
-		phone:
-		<%=request.getParameter("phone")%></p>
+	<p>Username: ${cookie.username.value}</p>
+	<p>first name: ${cookie.firstname.value}</p>
+	<p>last name: ${cookie.lastname.value}</p>
+	<p>email: ${cookie.email.value}</p>
+	<p>phone: ${cookie.phone.value}</p>
 	<br>
-	
+	<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>
