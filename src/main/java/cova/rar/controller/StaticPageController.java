@@ -1,5 +1,6 @@
 package cova.rar.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import cova.rar.entities.User;
 import cova.rar.service.CookieMonster;
 
 @Controller
@@ -32,7 +34,7 @@ public class StaticPageController {
 		return new ModelAndView("home");
 	}
 
-	@RequestMapping(value = {"/myAccount"})
+	@RequestMapping("/myAccount")
 	public ModelAndView myAccount() {
 		return new ModelAndView("myAccount");
 	}
@@ -41,4 +43,19 @@ public class StaticPageController {
 	public ModelAndView FAQ() {
 		return new ModelAndView("FAQ");
 	}
+	
+	@RequestMapping("/writeCookie")
+	public String writeCookies(HttpServletResponse response) {
+		User user = new User();
+		response.addCookie(new Cookie("firstnameCookie", user.getFirstname()));
+		response.addCookie(new Cookie("lastnameCookie", user.getLastname()));
+		response.addCookie(new Cookie("emailCookie", user.getEmail()));
+		response.addCookie(new Cookie("phoneCookie", user.getPhone()));
+		response.addCookie(new Cookie("usernameCookie", user.getUsername()));
+		response.addCookie(new Cookie("passwordCookie", user.getPassword()));
+		
+		return "writeCookie";
+	}
+
+	
 }

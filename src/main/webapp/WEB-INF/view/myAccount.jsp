@@ -9,23 +9,23 @@
 <body>
 <p>
 		Hello,
-		${user.firstname}</p>
+		${cookie.firstnameCookie.value}</p>
 	<br>
 	<p>
 		Username:
-		<%=request.getParameter("username")%></p>
+		${cookie.usernameCookie.value}</p>
 	<p>
 		first name:
-		<%=request.getParameter("firstname")%></p>
+		${cookie.firstnameCookie.value}</p>
 	<p>
 		last name:
-		<%=request.getParameter("lastname")%></p>
+		${cookie.lastnameCookie.value}</p>
 	<p>
 		email:
-		<%=request.getParameter("email")%></p>
+		${cookie.emailCookie.value}</p>
 	<p>
 		phone:
-		<%=request.getParameter("phone")%></p>
+		${cookie.phoneCookie.value}</p>
 	<br>
 	
 </body>
