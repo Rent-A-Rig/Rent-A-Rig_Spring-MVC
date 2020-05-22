@@ -34,7 +34,7 @@
 				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
 					<h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
 					<p>
-						<a href="products?filter=gamingRig">Gaming Rigs</a>
+						<a href="products?filter=gamingrigs">Gaming Rigs</a>
 					</p>
 					<p>
 						<a href="products?filter=portable">Portables</a>
@@ -58,7 +58,7 @@
 						<a href="register">Register / Log-in</a>
 					</p>
 					<p>
-						<a href="contactus">Contact Us</a>
+						<a href="home">Contact Us</a>
 					</p>
 					<p>
 						<a href="faq">FAQ</a>
@@ -92,7 +92,7 @@
 				<div class="col-md-7 col-lg-8">
 					<!--Copyright-->
 					<p class="text-center text-md-left">
-						Â© 2020 Copyright: <a href="home"> <strong>RentARig</strong>
+						© 2020 Copyright: <a href="home"> <strong>RentARig</strong>
 						</a>
 					</p>
 				</div>
