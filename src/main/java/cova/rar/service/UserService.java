@@ -13,28 +13,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserService {
 
-	@Autowired
-	public UserDao userDao;
+  @Autowired
+  public UserDao userDao;
 
-	public int register(User user) {
-		return userDao.register(user);
-	}
+  @Autowired
+  CookieMonster cookieMonster;
 
-	public Login validateUser(Login login) {
-		return userDao.validateUser(login);
-	}
+  public int register(User user) {
+    return userDao.register(user);
+  }
 
-	public User setUserCookies(User user, HttpServletResponse response) {
+  public Login validateUser(Login login) {
+    return userDao.validateUser(login);
+  }
 
-		CookieMonster cookieMonster = new CookieMonster();
-		cookieMonster.setCookie("usernameCookie", user.getUsername(), response);
-		cookieMonster.setCookie("firstnameCookie", user.getFirstname(), response);
-		cookieMonster.setCookie("lastnameCookie", user.getLastname(), response);
-		cookieMonster.setCookie("emailcookie", user.getEmail(), response);
-		cookieMonster.setCookie("phonecookie", user.getPhone(), response);
-		cookieMonster.setCookie("passwordCookie", user.getPassword(), response);
+  public void setUserCookies(HttpServletRequest request, HttpServletResponse response) {
 
-		return user;
-	}
+	  String username = cookieMonster.getCookie("username", request).getValue();
+	  User user = userDao.getUser(username);
+
+	  cookieMonster.setCookie("firstname", user.getFirstname(), response);
+	  cookieMonster.setCookie("lastname", user.getLastname(), response);
+	  cookieMonster.setCookie("phone", user.getPhone(), response);
+	  cookieMonster.setCookie("username", user.getUsername(), response);
+	  cookieMonster.setCookie("password", user.getPassword(), response);
+	  cookieMonster.setCookie("email", user.getEmail(), response);
+
+  }
 
 }
