@@ -32,7 +32,8 @@ public class OrderController {
 	
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
-	public ModelAndView checkout(@SessionAttribute("cart") Cart cart, HttpServletRequest request) {
+	public ModelAndView checkout(@ModelAttribute("cart") Cart cart, WebRequest webReq,
+			SessionStatus status, HttpServletRequest request) {
 
 
 		// add items from cart into orders database
