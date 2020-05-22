@@ -28,7 +28,7 @@
 					class="nav-link dropdown-toggle" href="products?filter=all" id="dropdown02"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
 					<div class="dropdown-menu" aria-labelledby="dropdown02">
-						<a class="dropdown-item" href="products?filter=gamingRigs">Gaming Rigs</a> <a
+						<a class="dropdown-item" href="products?filter=gamingrigs">Gaming Rigs</a> <a
 							class="dropdown-item" href="products?filter=portable">Portables</a> <a
 							class="dropdown-item" href="products?filter=accessories">Accessories</a>
 					</div></li>
@@ -63,7 +63,6 @@
 					type="submit">GO</button>
 			</form>
 		</div>
-
 	</nav>
 
 </body>
