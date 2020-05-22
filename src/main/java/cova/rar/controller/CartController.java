@@ -3,7 +3,6 @@ package cova.rar.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +13,12 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import cova.rar.entities.Cart;
 import cova.rar.entities.CartRedirectEntity;
 import cova.rar.entities.Item;
 import cova.rar.entities.Product;
 import cova.rar.service.CookieMonster;
 import cova.rar.service.ProductService;
+import cova.rar.entities.Cart;
 
 @Controller
 @SessionAttributes("cart")
