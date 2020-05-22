@@ -24,4 +24,8 @@ public class ProductService {
 
 	}
 
+	public Product getProduct(String prodID) {
+		return productDao.getProduct(prodID);
+	}
+
 }

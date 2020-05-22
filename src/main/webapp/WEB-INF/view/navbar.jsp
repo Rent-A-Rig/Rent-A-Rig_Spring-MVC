@@ -33,7 +33,7 @@
 							class="dropdown-item" href="products?filter=accessories">Accessories</a>
 					</div></li>
 					
-				<c:if test="${param.username == null}">	
+				<c:if test="${cookie.username == null}">	
 					<li class="nav-item"><a class="nav-link"
 						href="register">Log-in/Register</a></li>
 				</c:if>
@@ -44,11 +44,11 @@
 					href="cart?action=viewCart">Cart</a></li>
 			</ul>
 			
-			<c:if test="${param.username != null}">
+			<c:if test="${cookie.username != null}">
 			<div class="collapse navbar-collapse" id="#navbars">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link">Hello, Welcome
-							<%=request.getParameter("username")%>!</a></li>
+					<li class="nav-item"><a class="nav-link">Welcome
+							${cookie.username.value}!</a></li>
 					<li class="nav-item"><a class="nav-link" href="logoutProcess">LogOut</a>
 				</li>
 				</ul>
