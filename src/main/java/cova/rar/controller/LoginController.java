@@ -58,9 +58,8 @@ public class LoginController {
 		
 		
 		if(loginUser == null) { return "login"; }
-		 
-		cookieMonster.setLoginCookie(request, response);
-		cookieMonster.setUserCookie2(login, response);
+
+		
 		return "home";
 	}
 	@RequestMapping("/logoutProcess")

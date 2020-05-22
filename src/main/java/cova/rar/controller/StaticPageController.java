@@ -44,18 +44,4 @@ public class StaticPageController {
 		return new ModelAndView("FAQ");
 	}
 	
-	@RequestMapping("/writeCookie")
-	public String writeCookies(HttpServletResponse response) {
-		User user = new User();
-		response.addCookie(new Cookie("firstnameCookie", user.getFirstname()));
-		response.addCookie(new Cookie("lastnameCookie", user.getLastname()));
-		response.addCookie(new Cookie("emailCookie", user.getEmail()));
-		response.addCookie(new Cookie("phoneCookie", user.getPhone()));
-		response.addCookie(new Cookie("usernameCookie", user.getUsername()));
-		response.addCookie(new Cookie("passwordCookie", user.getPassword()));
-		
-		return "writeCookie";
-	}
-
-	
 }

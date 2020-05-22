@@ -4,10 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import cova.rar.entities.Login;
 import cova.rar.entities.User;
+import cova.rar.service.CookieMonster;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -47,6 +49,14 @@ public class UserDao {
 		else {
 			return null;
 		}
+	}
+	
+	public User getUser(String username, HttpServletResponse response) throws SQLException {
+		
+		String sql = "Select * from user where username = '" + username + "'";
+		User user = jdbcTemplate.queryForObject(sql, new UserMapper());
+		return user;
+		
 	}
 	
 	class UserMapper implements RowMapper<User> {

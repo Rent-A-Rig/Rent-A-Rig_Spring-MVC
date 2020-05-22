@@ -72,12 +72,19 @@ public class CookieMonster {
 				}
 			}
 		}
+		for (Cookie c: cookies) {
+			c.setMaxAge(0);
+			
+		}
 		
 		
 		if (null == loginCookie || loginCookie.getValue().equals("true")) {
 			loginCookie = new Cookie("login", "false");
 			loginCookie.setPath("/");
 			loginCookie.setMaxAge(0);
+			for (Cookie c: cookies) {
+				c.setMaxAge(0);
+			}
 			response.addCookie(loginCookie);
 		}
 			
@@ -86,6 +93,8 @@ public class CookieMonster {
 			response.addCookie(userCookie);
 		
 	}
+	
+	
 	
 	public boolean isLoggedIn(HttpServletRequest request) {
 
