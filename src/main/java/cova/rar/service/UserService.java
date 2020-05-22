@@ -7,6 +7,7 @@ import cova.rar.entities.User;
 import java.sql.ResultSet;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
