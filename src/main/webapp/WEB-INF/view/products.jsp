@@ -33,9 +33,7 @@
 
 	<div class="container">
 		<!-- Page Heading -->
-		<h1 class="my-4">
-			<!-- search category -->
-		</h1>
+		<h1 class="my-4">Products</h1>
 
 		<!-- Product One -->
 		<c:forEach var="product" items="${cartRedirectEntity.products}">
