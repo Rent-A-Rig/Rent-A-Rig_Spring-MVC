@@ -1,5 +1,7 @@
 package cova.rar.service;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +10,7 @@ import cova.rar.entities.Login;
 import cova.rar.entities.User;
 
 public class CookieMonster {
+	
 	
 	public void setUserCookie(User user, HttpServletResponse response) {
 
@@ -83,10 +86,11 @@ public class CookieMonster {
 			response.addCookie(userCookie);
 		
 	}
-
+	
 	public boolean isLoggedIn(HttpServletRequest request) {
 
 		Cookie loginCookie = getCookie("login", request);
+		
 		
 		if (null == loginCookie || loginCookie.getValue().equals("false")) {
 			return false;
@@ -125,7 +129,6 @@ public class CookieMonster {
 	public Cookie getCookie(String cookieName, HttpServletRequest request) {
 		
 		Cookie[] cookies = request.getCookies();
-
 		if (null != cookies) {
 			for (Cookie c : cookies) {
 				if (c.getName().equals(cookieName)) {
@@ -134,8 +137,10 @@ public class CookieMonster {
 			}
 		}
 		
+		
 		return null;
+		
+
 	}
 
 }
- 

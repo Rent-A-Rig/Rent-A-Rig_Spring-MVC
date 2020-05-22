@@ -1,45 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Products</title>
-<!-- Latest compiled and minified CSS -->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Popper JS -->
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-<link href='<spring:url value="/resources/css/mainStyles.css"/>'
-	rel="stylesheet">
-
-<link href='<spring:url value="/resources/css/products.css"/>'
-	rel="stylesheet">
+<link href='<spring:url value="/resources/css/mainStyles.css"/>' rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
-	<jsp:include page="header.jsp"></jsp:include>
 
-	<div class="container">
-		<h6 class="section-title h1">Products</h6>
-		<div class="row">
-			<div class="col-xs-12 ">
-				<div class="tab-content py-3 px-3 px-sm-0" id="">
-					<div class="tab-pane fade show active" id=""">
-						<!-- Page Content -->
+<jsp:include page="navbar.jsp"></jsp:include>
 
+<<<<<<< HEAD
 
 
 						<div class="container">
@@ -136,5 +110,35 @@
 
 	<jsp:include page="footer.jsp"></jsp:include>
 
+=======
+	<c:forEach var = "product" items = "${products}">
+		<table>
+			<tr>
+				<th>${product.name}</th>
+			</tr>
+			<tr>
+				<td>Product ID:        ${product.id}</td>
+			</tr>
+			<tr>
+				<td>Product Price:     ${product.price}</td>
+			</tr>
+			<tr>
+				<td>Product Inventory: ${product.category}</td>
+			</tr>
+			<tr>
+				<td>Product Inventory: ${product.inventory}</td>
+			</tr>
+			<tr>
+				<td>Product Desc1:     ${product.shortDesc}</td>
+			</tr>
+			<tr>
+				<td>Product Desc2:     ${product.longDesc}<br></td>
+			</tr>
+		</table>
+	</c:forEach>
+	
+<jsp:include page="footer.jsp"></jsp:include>
+	
+>>>>>>> refs/heads/master
 </body>
 </html>

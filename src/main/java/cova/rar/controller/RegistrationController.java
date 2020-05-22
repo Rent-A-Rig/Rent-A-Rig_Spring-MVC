@@ -1,4 +1,5 @@
 package cova.rar.controller;
+import javax.validation.Valid;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import cova.rar.entities.User;
 import cova.rar.service.CookieMonster;
@@ -26,30 +30,31 @@ import cova.rar.validator.UserValidator;
 
 @Controller
 public class RegistrationController {
-
+	
 	@Autowired
 	public UserService userService;
-
+	
 	@Autowired
 	private UserValidator userValidator;
 	
 	@Autowired
 	CookieMonster cookieMonster;
 	
-	@InitBinder
-	protected void initBinder(WebDataBinder binder) {
-		binder.addValidators(userValidator);
-	}
-	 
-	@GetMapping("/register")
-	// @RequestMapping(method = RequestMethod.GET)
-	public String showForm(Map<String, Object> model) {
-		User user = new User();
-		model.put("user", user);
+	 @InitBinder
+	   protected void initBinder(WebDataBinder binder) {
+	      binder.addValidators(userValidator);
+	   }
 
+	@GetMapping("/register")
+	//@RequestMapping(method = RequestMethod.GET)
+	public String showForm(Map<String, Object> model) {
+		User user = new User();    
+        model.put("user", user);
+        
 		return "register";
 	}
-
+	
+	
 	// click on register button
 	@PostMapping("/registerProcess")
 	public String registerProcess(@ModelAttribute("user") @Validated User user, 
@@ -71,6 +76,7 @@ public class RegistrationController {
 	      cookieMonster.setLoginCookie(request, response);
 	      cookieMonster.setUserCookie(user, response);
 	      return "home";
-
 	}
 }
+
+

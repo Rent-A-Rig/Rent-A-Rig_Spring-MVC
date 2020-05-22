@@ -28,6 +28,7 @@ public class UserDao {
 		
 		//username, first name, last name, shipping, billing, email, phone 
 		String sql = "insert into user values(?,?,?,?,?,?,?)";
+		
 		return jdbcTemplate.update(sql, 
 				new Object[] {user.getUsername(), user.getPassword(), user.getFirstname(),
 						user.getLastname(), user.getAddress().toString(),user.getEmail(),  user.getPhone()});
