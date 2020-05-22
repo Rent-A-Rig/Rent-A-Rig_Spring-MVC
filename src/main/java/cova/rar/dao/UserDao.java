@@ -49,6 +49,14 @@ public class UserDao {
 		}
 	}
 	
+	public User getUser(String username) {
+		
+		String sql = "SELECT * FROM user WHERE USERNAME = '" + username + "'";
+		User user = jdbcTemplate.queryForObject(sql, new UserMapper());
+		
+		return user;
+	}
+	
 	class UserMapper implements RowMapper<User> {
 
 		@Override
@@ -56,33 +64,17 @@ public class UserDao {
 
 			User user = new User();
 			
-			// no address atm
 			user.setUsername(rs.getString("username"));
 		    user.setPassword(rs.getString("password"));
-		    user.setFirstname(rs.getString("firstname"));
-		    user.setLastname(rs.getString("lastname"));
+		    user.setFirstname(rs.getString("first_name"));
+		    user.setLastname(rs.getString("last_name"));
 		    user.setAddress(rs.getString("address"));
 		    user.setEmail(rs.getString("email"));
-		    user.setPhone(rs.getString("phone"));
-		    
+		    user.setPhone(rs.getString("phone_number"));
 
 			return user;
 		}
-		/*
-		 * class LoginMapper implements RowMapper<Login>{
-		 * 
-		 * @Override public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
-		 * Login login = new Login();
-		 * 
-		 * login.setUsername(rs.getString("username"));
-		 * login.setPassword(rs.getString("password"));
-		 * 
-		 * return login; }
-		 * 
-		 * }
-		 */
-		
-		
+
 	}
 	
 }
