@@ -19,10 +19,13 @@
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<jsp:include page="header.jsp"></jsp:include>
+	
+	<h1>Order History</h1><br>
 
 	<c:forEach var="order" items="${orderhistory.orders}">
+	<br>
 		<div class="container">
-			<h4>${order.date}</h4>
+			<h4>OrderID: ${order.id} <br> Order Date: ${order.date}</h4>
 			<table class="table table-striped">
 				<thead>
 					<tr>
