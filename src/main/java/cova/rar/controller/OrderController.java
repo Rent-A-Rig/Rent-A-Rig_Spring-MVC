@@ -25,6 +25,11 @@ public class OrderController {
 	@Autowired
 	CookieMonster cookieMonster;
 	
+	@ModelAttribute("cart")
+	public Cart cart() {
+		return new Cart();
+	}
+	
 	
 	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public ModelAndView checkout(@SessionAttribute("cart") Cart cart, HttpServletRequest request) {
