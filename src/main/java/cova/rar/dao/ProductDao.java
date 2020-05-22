@@ -60,6 +60,12 @@ public class ProductDao {
 			return null;
 		}
 	}
+	
+	public Product getProduct(String prodID) {
+		String sql = "select * from products where PRODUCT_ID = " + "\"" + prodID + "\"";
+		
+		return jdbcTemplate.queryForObject(sql, new ProductMapper());
+	}
 
 	class ProductMapper implements RowMapper<Product> {
 

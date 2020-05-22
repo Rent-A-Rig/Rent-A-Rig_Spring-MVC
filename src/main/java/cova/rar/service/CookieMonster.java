@@ -88,16 +88,8 @@ public class CookieMonster {
 	}
 	
 	public boolean isLoggedIn(HttpServletRequest request) {
-		
-		Cookie[] cookies = request.getCookies();
-		Cookie loginCookie = null;
-		if (null != cookies) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("login")) {
-					loginCookie = cookie;
-				}
-			}
-		}
+
+		Cookie loginCookie = getCookie("login", request);
 		
 		
 		if (null == loginCookie || loginCookie.getValue().equals("false")) {
@@ -110,24 +102,44 @@ public class CookieMonster {
 	}
 
 	public void initLogin(HttpServletRequest request, HttpServletResponse response) {
+		// init the login and session cookies
+		
+		Cookie loginCookie = getCookie("login", request);
+		Cookie sessionCookie = getCookie("session", request);
+		String sessionID = request.getSession().getId();
+		if (null == loginCookie) {
+			setCookie("login", "false", response);
+		}
+		if (null == sessionCookie || !sessionID.equals(sessionCookie.getValue())) {
+			setCookie("session", request.getSession().getId(), response);		
+		}
+		
+
+	}
+	
+	public void setCookie(String name, String value, HttpServletResponse response) {
+		
+		Cookie cookie = new Cookie(name, value);
+		cookie.setPath("/");
+		cookie.setMaxAge(60 * 60 * 24 * 365 * 2);
+		response.addCookie(cookie);
+		
+	}
+	
+	public Cookie getCookie(String cookieName, HttpServletRequest request) {
 		
 		Cookie[] cookies = request.getCookies();
-		Cookie loginCookie = null;
 		if (null != cookies) {
-			for (Cookie cookie : cookies) {
-				if (cookie.getName().equals("login")) {
-					loginCookie = cookie;
+			for (Cookie c : cookies) {
+				if (c.getName().equals(cookieName)) {
+					return c;
 				}
 			}
 		}
 		
-		if (null == loginCookie) {
-			loginCookie = new Cookie("login", "false");
-			loginCookie.setPath("/");
-			loginCookie.setMaxAge(60 * 60 * 24 * 365 * 2);
-			response.addCookie(loginCookie);
-			
-		}
+		
+		return null;
+		
 
 	}
 
