@@ -43,6 +43,9 @@ public class OrderController {
 		
 		orderService.addCart(cart, userID);
 		
+		status.setComplete();
+		webReq.removeAttribute("cart", WebRequest.SCOPE_SESSION);
+		
 		// update products inventory
 		// if product inventory is less than one -> do not update and mark product
 		// get orders from database
