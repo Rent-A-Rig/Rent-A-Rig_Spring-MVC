@@ -19,7 +19,7 @@
 	<div class="container">
 		<!-- Page Heading -->
 		<h1 class="my-4">
-			<!-- 								Display search category -->
+			<!--Display search category -->
 		</h1>
 
 
@@ -97,13 +97,6 @@
 
 		</div>
 		<hr>
-	</div>
-	</div>
-	</div>
-	</div>
-
-	</div>
-
 	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
