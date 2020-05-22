@@ -23,7 +23,7 @@
 				<td><form:label path="username">Username: </form:label></td>
 				<td>
 					<form:input path="username" name="username" id="username" placeholder="Enter username"/>
-					<form:errors path="username"></form:errors>
+					<form:errors path="username" class="text-danger"></form:errors>
 				</td>	
 			</tr>
 			</div>
@@ -33,7 +33,7 @@
 				<td><form:label path="password">Password: </form:label></td>
 				<td>
 					<form:password path="password" name="password" id="password" placeholder="Enter password"/>
-					<form:errors path="password"></form:errors>
+					<form:errors path="password" class="text-danger"></form:errors>
 				</td>
 			</tr>
 			</div>
@@ -43,7 +43,7 @@
 				<td><form:label path="firstname">FirstName: </form:label></td>
 				<td>
 					<form:input path="firstname" name="firstname" id="firstname" placeholder="Enter firstname"/>
-					<form:errors path="firstname"></form:errors>
+					<form:errors path="firstname" class="text-danger"></form:errors>
 				</td>
 			</tr>
 			</div>
@@ -53,7 +53,7 @@
 				<td><form:label path="lastname">LastName: </form:label></td>
 				<td>
 					<form:input path="lastname" name="lastname" id="lastname" placeholder="Enter lastname"/>
-					<form:errors path="lastname"></form:errors>
+					<form:errors path="lastname" class="text-danger"></form:errors>
 				</td>
 			</tr>
 			</div>
@@ -62,9 +62,8 @@
 			<tr>
 				<td><form:label path="email">Email: </form:label></td>
 				<td>
-					<form:input path="email" name="email" id="email" placeholder="Enter email"/>
-					<form:errors path="email"></form:errors>
-					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+					<form:input path="email" name="email" id="email" placeholder="Ex:email@domain.com"/>
+					<form:errors path="email" class="text-danger"></form:errors>
 				</td>
 			</tr>
 			</div>
@@ -73,8 +72,8 @@
 			<tr>
 				<td><form:label path="phone">Phone: </form:label></td>
 				<td>
-					<form:input path="phone" name="phone" id="phone" placeholder="Ex:(123)456-7890" />
-					<form:errors path="phone"></form:errors>
+					<form:input path="phone" name="phone" id="phone" placeholder="Ex:123-456-7890" />
+					<form:errors path="phone" class="text-danger"></form:errors>
 				</td>
 			</tr>
 			</div>

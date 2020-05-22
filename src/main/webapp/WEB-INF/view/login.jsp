@@ -24,7 +24,7 @@
 				<tr>
 					<td><form:label path="username">Username: </form:label></td>
 					<td><form:input path="username" name="username" id="username" />
-						<form:errors path="username"></form:errors></td>
+						<form:errors path="username" class="text-danger"></form:errors></td>
 				</tr>
 				</div>
 
@@ -32,19 +32,14 @@
 				<tr>
 					<td><form:label path="password">Password:</form:label></td>
 					<td><form:password path="password" name="password"
-							id="password" /> <form:errors path="password"></form:errors></td>
+							id="password" /> <form:errors path="password" class="text-danger"></form:errors></td>
 				</tr>
 				
 				</div>
 				
-				<div class="checkbox">
-					<tr>
-					<td><label><input type="checkbox"> Remember me</label></td>
-					</tr>
-				</div>
+
 				
 				<tr>
-			
 					<td><form:button id="login" name="login" class="btn btn-primary">Login</form:button>
 					</td>
 				</tr>
