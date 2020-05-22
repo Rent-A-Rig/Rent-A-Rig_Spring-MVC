@@ -1,25 +1,28 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>FAQs</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href='<spring:url value="/resources/css/mainStyles.css"/>'
+	rel="stylesheet">
+<link href='<spring:url value="/resources/css/FAQstyle.css"/>'
+	rel="stylesheet">
+
 </head>
 <body>
-	<div class="myNav">
-		<p></p>
-		<nav id="navbar"></nav>
-		<header id="header"></header>
-	</div>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<!--Navigation Section-->
 
 	<div class="container-fluid headofpage">
@@ -41,11 +44,11 @@
 					Call us at 1-800-555-5555 and we will respond within 48 months.<br>
 				</div></td>
 		</tr>
-			<td class="faqbutton">
-				<button type="button" class="btn" data-toggle="collapse"
-					data-target="#collapse2">What happens when I damage the
-					product during the rental phase?</button>
-			</td>
+		<td class="faqbutton">
+			<button type="button" class="btn" data-toggle="collapse"
+				data-target="#collapse2">What happens when I damage the
+				product during the rental phase?</button>
+		</td>
 		<tr>
 			<td><div class="collapse out" id="collapse2">
 					We believe in being fair, so we will go ahead and damage your
@@ -144,6 +147,6 @@
 		</tr>
 	</table>
 	<hr>
-	<footer class="footnotes" id="footer"> </footer>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
