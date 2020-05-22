@@ -8,6 +8,7 @@ import java.sql.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import cova.rar.dao.OrderDao;
+import cova.rar.dao.ProductDao;
 import cova.rar.entities.Cart;
 import cova.rar.entities.Order;
 
@@ -15,6 +16,9 @@ public class OrderService {
 
 	@Autowired
 	OrderDao orderDao;
+	
+	@Autowired
+	ProductDao productDao;
 
 	public void addCart(Cart cart, String userID) {
 
@@ -26,6 +30,8 @@ public class OrderService {
 		
 		orderDao.addItems(orderID, cart.getItems());
 		
+		productDao.removeInventory(cart.getItems());
+		
 	}
 	
 	public List<Order> getOrderHistory(String userID) {
@@ -34,5 +40,6 @@ public class OrderService {
 		
 		return orders;
 	}
+
 
 }
