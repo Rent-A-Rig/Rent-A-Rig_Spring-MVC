@@ -61,7 +61,7 @@ public class LoginController {
 		 
 		cookieMonster.setLoginCookie(request, response);
 		cookieMonster.setUserCookie2(login, response);
-		return "home";
+		return "redirect:home";
 	}
 	@RequestMapping("/logoutProcess")
 	public String logoutProcess(HttpServletRequest request, HttpServletResponse response) {
@@ -70,4 +70,5 @@ public class LoginController {
 		return "redirect:home";
 		
 	}
+	
 }

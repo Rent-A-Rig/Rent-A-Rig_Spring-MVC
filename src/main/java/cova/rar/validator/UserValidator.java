@@ -47,7 +47,7 @@ public class UserValidator implements Validator {
       ValidationUtils.rejectIfEmptyOrWhitespace(err, "phone", "error.phone", "PhoneNumber is required.");
       Pattern phonePattern = Pattern.compile("^((\\(\\d{3}\\) ?)|(\\d{3}-))?\\d{3}-\\d{4}$");
       if (!(phonePattern.matcher(user.getPhone()).matches())) {
-          err.rejectValue("phone", "user.phone.invalid","Invalid phone format! Please enter format like (123) 456-7890 | 123-456-7890 !");  
+          err.rejectValue("phone", "user.phone.invalid","Invalid phone format! Please enter format like (123) 456-7890 | 123-456-7890");  
        }
    }
 

@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -7,16 +8,15 @@
 <meta charset="UTF-8">
 <title>FAQs</title>
 
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href='<spring:url value="/resources/css/mainStyles.css"/>'
 	rel="stylesheet">
 <link href='<spring:url value="/resources/css/FAQstyle.css"/>'
 	rel="stylesheet">
+
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
