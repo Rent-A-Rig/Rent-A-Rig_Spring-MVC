@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import cova.rar.entities.Item;
 import cova.rar.entities.Product;
 
 public class ProductDao {
