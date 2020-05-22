@@ -10,6 +10,17 @@ public class Product {
 	private int inventory;
 	private String category;
 	
+	public boolean equals(Product product) {
+		if (product.getId().equals(this.id)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+
+
+	}
+	
 	public String getId() {
 		return id;
 	}
