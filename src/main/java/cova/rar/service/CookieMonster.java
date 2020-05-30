@@ -103,9 +103,9 @@ public class CookieMonster {
 
 	}
 	
-	public void setCookie(String name, String value, HttpServletResponse response) {
+	public void setCookie(String name, String i, HttpServletResponse response) {
 		
-		Cookie cookie = new Cookie(name, value);
+		Cookie cookie = new Cookie(name, i);
 		cookie.setPath("/");
 		cookie.setMaxAge(60 * 60 * 24 * 365 * 2);
 		response.addCookie(cookie);

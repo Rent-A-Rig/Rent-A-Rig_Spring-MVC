@@ -68,4 +68,9 @@ public class StaticPageController {
 	public ModelAndView thankyou() {
 		return new ModelAndView("thankYou");
 	}
+	
+	@RequestMapping(value= {"/address"})
+	public ModelAndView address() {
+		return new ModelAndView("address");
+	}
 }

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import cova.fss.service.AddressService;
 import cova.rar.dao.OrderDao;
 import cova.rar.dao.ProductDao;
 import cova.rar.dao.UserDao;
@@ -15,6 +16,7 @@ import cova.rar.service.CookieMonster;
 import cova.rar.service.OrderService;
 import cova.rar.service.ProductService;
 import cova.rar.service.UserService;
+import cova.rar.validator.AddressValidator;
 import cova.rar.validator.LoginValidator;
 import cova.rar.validator.UserValidator;
 
@@ -32,6 +34,16 @@ public class BeanConfig {
 	@Bean
 	public LoginValidator getLoginValidator() {
 		return new LoginValidator();
+	}
+	
+	@Bean
+	public AddressValidator getAddressValidator() {
+		return new AddressValidator();
+	}
+	// enter address into table and return addressID and enter addressID into user table & update addrss table to hae address id instead of string address
+	@Bean
+	public AddressService getAddressService() {
+		return new AddressService();
 	}
 	
 	@Bean

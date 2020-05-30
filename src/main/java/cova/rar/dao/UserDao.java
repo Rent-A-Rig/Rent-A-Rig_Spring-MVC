@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import cova.fss.entities.Address;
 import cova.rar.entities.Login;
 import cova.rar.entities.User;
 import cova.rar.service.CookieMonster;
@@ -25,15 +26,16 @@ public class UserDao {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	
 	public int register(User user) {
 		// TODO check if user already exists
 		
-		//username, first name, last name, shipping, billing, email, phone 
+		//username, password, first name, last name, addressID, email, phone 
 		String sql = "insert into user values(?,?,?,?,?,?,?)";
 		
 		return jdbcTemplate.update(sql, 
 				new Object[] {user.getUsername(), user.getPassword(), user.getFirstname(),
-						user.getLastname(), user.getAddress().toString(),user.getEmail(),  user.getPhone()});
+						user.getLastname(), user.getAddressID(), user.getEmail(),  user.getPhone()});
 	}
 	
 	public Login validateUser(Login login) {
@@ -71,26 +73,12 @@ public class UserDao {
 		    user.setPassword(rs.getString("password"));
 		    user.setFirstname(rs.getString("first_name"));
 		    user.setLastname(rs.getString("last_name"));
-		    user.setAddress(rs.getString("address"));
+		    user.setAddressID(rs.getString("address_id"));
 		    user.setEmail(rs.getString("email"));
 		    user.setPhone(rs.getString("phone_number"));
 
 			return user;
 		}
-		/*
-		 * class LoginMapper implements RowMapper<Login>{
-		 * 
-		 * @Override public Login mapRow(ResultSet rs, int rowNum) throws SQLException {
-		 * Login login = new Login();
-		 * 
-		 * login.setUsername(rs.getString("username"));
-		 * login.setPassword(rs.getString("password"));
-		 * 
-		 * return login; }
-		 * 
-		 * }
-		 */
-		
 		
 	}
 	

@@ -66,7 +66,7 @@ public class OrderDao {
 	public List<Order> getOrders(String userID) {
 		
 		// get a list of order IDs and dates
-		String sql = "SELECT ORDER_ID, ORDER_DATE FROM orders WHERE USER_ID = " + "'" + userID + "'"; 
+		String sql = "SELECT ORDER_ID, ORDER_DATE FROM orders WHERE USER_ID = '" + "'" + userID + "'"; 
 		
 		List<Order> orders = jdbcTemplate.query(sql, new OrderMapper());
 		

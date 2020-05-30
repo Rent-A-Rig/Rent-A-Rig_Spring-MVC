@@ -8,7 +8,6 @@
 	rel="stylesheet" id="bootstrap-css">
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <link rel="stylesheet" href="css/mainStyles.css" type="text/css">
 <link rel="stylesheet" href="css/ContactInfoStyle.css"
@@ -17,6 +16,8 @@
 	
 </head>
 <body>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 <div class="myNav">
     <p></p><nav id="navbar"></nav></div>
     <header id="header"></header>
@@ -55,13 +56,14 @@
 					<br> <input type="checkbox" value="Email" name="Email">Email
 					<input type="checkbox" value="Snail Mail" name="Snail Mail">Snail-Mail
 				</p>
-				<a href="thankYou">Submit
+				<a href="home">Submit
 					your thoughts here</a>
 				<br>
 			</form>
-			<a href="home">home</a>
 		</fieldset>
 	</div>
 	<footer id="footer"></footer>
+	
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
